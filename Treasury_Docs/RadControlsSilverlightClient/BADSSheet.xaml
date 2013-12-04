@@ -1,0 +1,151 @@
+﻿<UserControl x:Class="RadControlsSilverlightClient.BADSSheet"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    mc:Ignorable="d"
+    d:DesignHeight="680" d:DesignWidth="680" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+    <ScrollViewer x:Name="Scroller" VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="LayoutRoot" Width="640">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid x:Name="ToolbarLayout" Width="640" Grid.Row="0" Height="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Button x:Name="PrintButton" Content="Print" Click="PrintButton_Click" Width="100" HorizontalAlignment="Right"></Button>
+            </Grid>
+            <Grid x:Name="PrintLayout" Background="White" Width="640" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid x:Name="HeaderLayout" Width="640" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="640" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="17" />
+                        <RowDefinition Height="17" />
+                        <RowDefinition Height="17" />
+                    </Grid.RowDefinitions>
+
+                    <sdk:Label Height="17" HorizontalAlignment="Center"  Name="label1" VerticalAlignment="Top"  Content="Hess Corporation" Grid.Column="0" Grid.Row="0"  />
+                    <sdk:Label Height="17" HorizontalAlignment="Center"  Name="label2" VerticalAlignment="Top"  Content="Treasury Department" Grid.Column="0" Grid.Row="1"  />
+                    <sdk:Label Height="17" HorizontalAlignment="Center"  Name="label3" VerticalAlignment="Top"  Content="Bank Account Data Sheet" Grid.Column="0" Grid.Row="2" />
+                </Grid>
+                <Grid x:Name="datalayout" Width="620" Grid.Row="2" Margin="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="423" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="27" />
+                        <RowDefinition Height="17" />
+                        <RowDefinition Height="17" />
+                        <RowDefinition Height="17" />
+                        <RowDefinition Height="27" />
+
+                        <RowDefinition Height="17" />
+                        <RowDefinition Height="17" />
+                        <RowDefinition Height="17" />
+                        <RowDefinition Height="17" />
+                        <RowDefinition Height="17" />
+                        <RowDefinition Height="27" />
+
+                        <RowDefinition Height="27" />
+
+                        <RowDefinition Height="27" />
+
+                        <RowDefinition Height="27" />
+
+                        <RowDefinition Height="17" />
+                        <RowDefinition Height="17" />
+                        <RowDefinition Height="27" />
+
+                        <RowDefinition Height="27" />
+                        <RowDefinition Height="27" />
+                        <RowDefinition Height="27" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    
+                    <sdk:Label HorizontalAlignment="Left" Name="dLabel" VerticalAlignment="top" Content="Date Retrieved" Grid.Row="0" Grid.Column="0" />
+                     <sdk:Label HorizontalAlignment="Left" Name="dateLabel" VerticalAlignment="Top" Content="Date Retrieved" Grid.Row="0" Grid.Column="1" /> 
+                    
+                    <sdk:Label  HorizontalAlignment="Left"  Name="label4" VerticalAlignment="Top" Content="Bank:" Grid.Row="1" Grid.Column="0" />
+                    <sdk:Label  HorizontalAlignment="Left"  Name="bankLabel" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Content="banklabel" />
+
+                    <sdk:Label  HorizontalAlignment="Left" Name="label5" VerticalAlignment="Top" Content="Business Entity:" Grid.Row="2" Grid.Column="0" />
+                    <sdk:Label  HorizontalAlignment="Left"  Name="entityLabel" VerticalAlignment="Top" Grid.Row="2" Grid.Column="1" />
+
+                    <sdk:Label Height="17" HorizontalAlignment="Left" Name="label6" VerticalAlignment="Top" Width="76" Content="Account Type:" Grid.Column="0" Grid.Row="3" />
+                    <sdk:Label Height="17" HorizontalAlignment="Left" Name="accountTypeLabel" VerticalAlignment="Top" Width="423" Grid.Column="1" Grid.Row="3"/>
+
+                    <sdk:Label Height="17" HorizontalAlignment="Left"  Name="label17" VerticalAlignment="Top" Width="132" Content="Currency:" Grid.Column="0" Grid.Row="4" />
+                    <sdk:Label Height="17" HorizontalAlignment="Left"  Name="currencyLabel" VerticalAlignment="Top" Width="423" Content="Label" Grid.Column="1" Grid.Row="4"  />
+
+                    <sdk:Label Height="17" HorizontalAlignment="Left" Name="label7" VerticalAlignment="Top" Width="132" Content="Bank Contact/Address:"  Grid.Column="0" Grid.Row="5"/>
+                    <sdk:Label Height="17" HorizontalAlignment="Left" Name="contactNameLabel" VerticalAlignment="Top" Width="423" Grid.Column="1" Grid.Row="5" />
+                    <sdk:Label Height="17" HorizontalAlignment="Left" Name="streetLabel" VerticalAlignment="Top" Width="423" Grid.Column="1" Grid.Row="6"  />
+                    <sdk:Label Height="17" HorizontalAlignment="Left" Name="secondStreetLabel" VerticalAlignment="Top" Width="423" Grid.Column="1" Grid.Row="7"  />
+                    <sdk:Label Height="17" HorizontalAlignment="Left" Name="cityLabel" VerticalAlignment="Top" Width="423" Grid.Column="1" Grid.Row="8"  />
+                    <sdk:Label Height="17" HorizontalAlignment="Left" Name="phoneLabel" VerticalAlignment="Top" Width="423" Grid.Column="1" Grid.Row="9"  />
+                    <sdk:Label Height="17" HorizontalAlignment="Left" Name="faxLabel" VerticalAlignment="Top" Width="423" Grid.Column="1" Grid.Row="10"  />
+                    <sdk:Label Height="17" HorizontalAlignment="Left" Name="emailLabel" VerticalAlignment="Top" Width="423" Grid.Column="1" Grid.Row="11"  />
+
+                    <sdk:Label Height="17" HorizontalAlignment="Left" Name="label8" VerticalAlignment="Top" Width="132" Content="Account Number:" Grid.Column="0" Grid.Row="12" />
+                    <sdk:Label Height="17" HorizontalAlignment="Left" Name="accountNumberLabel" VerticalAlignment="Top" Width="423" Content="Label" Grid.Column="1" Grid.Row="12" />
+
+                    <sdk:Label Height="17" HorizontalAlignment="Left" Name="label9" VerticalAlignment="Top" Width="132" Content="Account Title:" Grid.Column="0" Grid.Row="13" />
+                    <sdk:Label Height="17" HorizontalAlignment="Left"  Name="accountTitleLabel" VerticalAlignment="Top" Width="423" Content="N/A" Grid.Column="1" Grid.Row="13" />
+
+                    <sdk:Label Height="17" HorizontalAlignment="Left"  Name="label10" VerticalAlignment="Top" Width="132" Content="Account Opened:" Grid.Column="0" Grid.Row="14" />
+                    <sdk:Label Height="17" HorizontalAlignment="Left"  Name="accountOpenedLabel" VerticalAlignment="Top" Width="423" Content="N/A" Grid.Column="1" Grid.Row="14" />
+
+
+                    <sdk:Label Height="17" HorizontalAlignment="Left"  Name="label11" VerticalAlignment="Top" Width="132" Content="Change Date:" Grid.Column="0" Grid.Row="15"/>
+                    <sdk:Label Height="17" HorizontalAlignment="Left"  Name="changeDateLabel" VerticalAlignment="Top" Width="423" Content="N/A" Grid.Column="1" Grid.Row="15" />
+
+                    <sdk:Label Height="17" HorizontalAlignment="Left"  Name="label12" VerticalAlignment="Top" Width="132" Content="Account Closed:" Grid.Column="0" Grid.Row="16" />
+                    <sdk:Label Height="17" HorizontalAlignment="Left"  Name="accountClosedLabel" VerticalAlignment="Top" Width="423" Content="N/A" Grid.Column="1" Grid.Row="16" />
+
+                    <sdk:Label Height="17" HorizontalAlignment="Left"  Name="label13" VerticalAlignment="Top" Width="132" Content="Tax ID #:" Grid.Column="0" Grid.Row="17" />
+                    <sdk:Label Height="17" HorizontalAlignment="Left"  Name="taxIdLabel" VerticalAlignment="Top" Width="423" Content="N/A" Grid.Column="1" Grid.Row="17" />
+
+                    <sdk:Label Height="17" HorizontalAlignment="Left"  Name="label14" VerticalAlignment="Top" Width="132" Content="Account Statement To:" Grid.Column="0" Grid.Row="18" />
+                    <sdk:Label Height="17" HorizontalAlignment="Left" Name="accountStatementLabel" VerticalAlignment="Top" Width="423" Content="N/A" Grid.Column="1" Grid.Row="18" />
+
+                    <sdk:Label Height="17" HorizontalAlignment="Left"  Name="label15" VerticalAlignment="Top" Width="132" Content="Account ZBA'S VS:" Grid.Column="0" Grid.Row="19" />
+                    <sdk:Label Height="17" HorizontalAlignment="Left"  Name="zbaLabel" VerticalAlignment="Top" Width="423" Content="N/A" Grid.Column="1" Grid.Row="19" />
+
+                    <sdk:Label Height="17" HorizontalAlignment="Left"  Name="label16" VerticalAlignment="Top" Width="132" Content="Notes:" Grid.Column="0" Grid.Row="20" />
+                    <TextBlock Height="17" HorizontalAlignment="Left"  Name="notesLabel" VerticalAlignment="Top" Width="423" Grid.Column="1" Grid.Row="20" TextWrapping="Wrap"/>
+
+
+
+
+                </Grid>
+                <Grid x:Name="SignatureTitleLayout" Grid.Row="3" Margin="20,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <sdk:Label HorizontalAlignment="Left"  Name="label18" VerticalAlignment="Top" Width="200"  Content="Signatories and Signature Rules:" Grid.Column="0" Grid.Row="0"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

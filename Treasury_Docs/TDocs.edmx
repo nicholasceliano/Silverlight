@@ -1,0 +1,2812 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TreasuryDocsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="TreasuryDocsModelStoreContainer">
+          <EntitySet Name="Accounts" EntityType="TreasuryDocsModel.Store.Accounts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Accounts_Signers_Entitlements" EntityType="TreasuryDocsModel.Store.Accounts_Signers_Entitlements" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AccountTypes" EntityType="TreasuryDocsModel.Store.AccountTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Active" EntityType="TreasuryDocsModel.Store.Active" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Audit_Accounts" EntityType="TreasuryDocsModel.Store.Audit_Accounts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Audit_Accounts_Signers_Entitlements" EntityType="TreasuryDocsModel.Store.Audit_Accounts_Signers_Entitlements" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Balances" EntityType="TreasuryDocsModel.Store.Balances" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Banks" EntityType="TreasuryDocsModel.Store.Banks" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Citizenships" EntityType="TreasuryDocsModel.Store.Citizenships" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Contacts" EntityType="TreasuryDocsModel.Store.Contacts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Currencies" EntityType="TreasuryDocsModel.Store.Currencies" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Divisions" EntityType="TreasuryDocsModel.Store.Divisions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Entities" EntityType="TreasuryDocsModel.Store.Entities" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Entitlements" EntityType="TreasuryDocsModel.Store.Entitlements" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Signers" EntityType="TreasuryDocsModel.Store.Signers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="TreasuryDocsModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AccountsContactsView" EntityType="TreasuryDocsModel.Store.AccountsContactsView" store:Type="Views" store:Schema="dbo" store:Name="AccountsContactsView">
+            <DefiningQuery>SELECT 
+      [AccountsContactsView].[contactID_pk] AS [contactID_pk], 
+      [AccountsContactsView].[account_contact_pk] AS [account_contact_pk], 
+      [AccountsContactsView].[accountID_pk] AS [accountID_pk], 
+      [AccountsContactsView].[name] AS [name], 
+      [AccountsContactsView].[firstname] AS [firstname], 
+      [AccountsContactsView].[lastname] AS [lastname], 
+      [AccountsContactsView].[title] AS [title], 
+      [AccountsContactsView].[email] AS [email], 
+      [AccountsContactsView].[phone] AS [phone], 
+      [AccountsContactsView].[active] AS [active], 
+      [AccountsContactsView].[createdby] AS [createdby], 
+      [AccountsContactsView].[createddate] AS [createddate], 
+      [AccountsContactsView].[modifiedby] AS [modifiedby], 
+      [AccountsContactsView].[modifieddate] AS [modifieddate]
+      FROM [dbo].[AccountsContactsView] AS [AccountsContactsView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AccountSignerEntitlementsView" EntityType="TreasuryDocsModel.Store.AccountSignerEntitlementsView" store:Type="Views" store:Schema="dbo" store:Name="AccountSignerEntitlementsView">
+            <DefiningQuery>SELECT 
+      [AccountSignerEntitlementsView].[description] AS [description], 
+      [AccountSignerEntitlementsView].[accountNumber] AS [accountNumber], 
+      [AccountSignerEntitlementsView].[firstname] AS [firstname], 
+      [AccountSignerEntitlementsView].[lastname] AS [lastname], 
+      [AccountSignerEntitlementsView].[middlename] AS [middlename], 
+      [AccountSignerEntitlementsView].[entitlementID_fk] AS [entitlementID_fk], 
+      [AccountSignerEntitlementsView].[citizenshipCode] AS [citizenshipCode], 
+      [AccountSignerEntitlementsView].[entitlementGroup] AS [entitlementGroup]
+      FROM [dbo].[AccountSignerEntitlementsView] AS [AccountSignerEntitlementsView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AccountsSignersView" EntityType="TreasuryDocsModel.Store.AccountsSignersView" store:Type="Views" store:Schema="dbo" store:Name="AccountsSignersView">
+            <DefiningQuery>SELECT 
+      [AccountsSignersView].[account_signer_entitlementID_pk] AS [account_signer_entitlementID_pk], 
+      [AccountsSignersView].[accountID_pk] AS [accountID_pk], 
+      [AccountsSignersView].[accountNumber] AS [accountNumber], 
+      [AccountsSignersView].[signerID_pk] AS [signerID_pk], 
+      [AccountsSignersView].[firstname] AS [firstname], 
+      [AccountsSignersView].[lastname] AS [lastname], 
+      [AccountsSignersView].[entitlementGroup] AS [entitlementGroup], 
+      [AccountsSignersView].[added] AS [added], 
+      [AccountsSignersView].[removed] AS [removed], 
+      [AccountsSignersView].[user_add] AS [user_add], 
+      [AccountsSignersView].[user_del] AS [user_del], 
+      [AccountsSignersView].[modifieddate] AS [modifieddate], 
+      [AccountsSignersView].[modifiedby] AS [modifiedby], 
+      [AccountsSignersView].[createddate] AS [createddate], 
+      [AccountsSignersView].[createdby] AS [createdby], 
+      [AccountsSignersView].[name] AS [name]
+      FROM [dbo].[AccountsSignersView] AS [AccountsSignersView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AccountsView" EntityType="TreasuryDocsModel.Store.AccountsView" store:Type="Views" store:Schema="dbo" store:Name="AccountsView">
+            <DefiningQuery>SELECT 
+      [AccountsView].[accountID] AS [accountID], 
+      [AccountsView].[accountNumber] AS [accountNumber], 
+      [AccountsView].[divisionCode] AS [divisionCode], 
+      [AccountsView].[name] AS [name], 
+      [AccountsView].[bankID_pk] AS [bankID_pk], 
+      [AccountsView].[bank] AS [bank], 
+      [AccountsView].[accountType] AS [accountType], 
+      [AccountsView].[entity] AS [entity], 
+      [AccountsView].[taxID] AS [taxID], 
+      [AccountsView].[currencyCode] AS [currencyCode], 
+      [AccountsView].[opened_date] AS [opened_date], 
+      [AccountsView].[closed_date] AS [closed_date], 
+      [AccountsView].[active] AS [active], 
+      [AccountsView].[modifieddate] AS [modifieddate], 
+      [AccountsView].[modifiedby] AS [modifiedby], 
+      [AccountsView].[createddate] AS [createddate], 
+      [AccountsView].[createdby] AS [createdby], 
+      [AccountsView].[acstatement] AS [acstatement], 
+      [AccountsView].[zba] AS [zba], 
+      [AccountsView].[notes] AS [notes]
+      FROM [dbo].[AccountsView] AS [AccountsView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllAccountsSignersView" EntityType="TreasuryDocsModel.Store.AllAccountsSignersView" store:Type="Views" store:Schema="dbo" store:Name="AllAccountsSignersView">
+            <DefiningQuery>SELECT 
+      [AllAccountsSignersView].[account_signer_entitlementID_pk] AS [account_signer_entitlementID_pk], 
+      [AllAccountsSignersView].[accountID_pk] AS [accountID_pk], 
+      [AllAccountsSignersView].[accountNumber] AS [accountNumber], 
+      [AllAccountsSignersView].[signerID_pk] AS [signerID_pk], 
+      [AllAccountsSignersView].[firstname] AS [firstname], 
+      [AllAccountsSignersView].[lastname] AS [lastname], 
+      [AllAccountsSignersView].[entitlementGroup] AS [entitlementGroup], 
+      [AllAccountsSignersView].[added] AS [added], 
+      [AllAccountsSignersView].[removed] AS [removed], 
+      [AllAccountsSignersView].[user_add] AS [user_add], 
+      [AllAccountsSignersView].[user_del] AS [user_del], 
+      [AllAccountsSignersView].[modifieddate] AS [modifieddate], 
+      [AllAccountsSignersView].[modifiedby] AS [modifiedby], 
+      [AllAccountsSignersView].[createddate] AS [createddate], 
+      [AllAccountsSignersView].[createdby] AS [createdby]
+      FROM [dbo].[AllAccountsSignersView] AS [AllAccountsSignersView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AuditAccountsContactsView" EntityType="TreasuryDocsModel.Store.AuditAccountsContactsView" store:Type="Views" store:Schema="dbo" store:Name="AuditAccountsContactsView">
+            <DefiningQuery>SELECT 
+      [AuditAccountsContactsView].[audit_account_contactID_pk] AS [audit_account_contactID_pk], 
+      [AuditAccountsContactsView].[accountID] AS [accountID], 
+      [AuditAccountsContactsView].[accountname] AS [accountname], 
+      [AuditAccountsContactsView].[firstname] AS [firstname], 
+      [AuditAccountsContactsView].[lastname] AS [lastname], 
+      [AuditAccountsContactsView].[middlename] AS [middlename], 
+      [AuditAccountsContactsView].[email] AS [email], 
+      [AuditAccountsContactsView].[active] AS [active], 
+      [AuditAccountsContactsView].[bank] AS [bank], 
+      [AuditAccountsContactsView].[modifieddate] AS [modifieddate], 
+      [AuditAccountsContactsView].[modifiedby] AS [modifiedby], 
+      [AuditAccountsContactsView].[createddate] AS [createddate], 
+      [AuditAccountsContactsView].[createdby] AS [createdby], 
+      [AuditAccountsContactsView].[audit_date] AS [audit_date], 
+      [AuditAccountsContactsView].[action] AS [action], 
+      [AuditAccountsContactsView].[FieldName] AS [FieldName], 
+      [AuditAccountsContactsView].[OldValue] AS [OldValue], 
+      [AuditAccountsContactsView].[NewValue] AS [NewValue]
+      FROM [dbo].[AuditAccountsContactsView] AS [AuditAccountsContactsView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AuditAccountsSignersEntitlementsView" EntityType="TreasuryDocsModel.Store.AuditAccountsSignersEntitlementsView" store:Type="Views" store:Schema="dbo" store:Name="AuditAccountsSignersEntitlementsView">
+            <DefiningQuery>SELECT 
+      [AuditAccountsSignersEntitlementsView].[audit_account_signer_entitlementID_pk] AS [audit_account_signer_entitlementID_pk], 
+      [AuditAccountsSignersEntitlementsView].[accountID] AS [accountID], 
+      [AuditAccountsSignersEntitlementsView].[accountname] AS [accountname], 
+      [AuditAccountsSignersEntitlementsView].[firstname] AS [firstname], 
+      [AuditAccountsSignersEntitlementsView].[lastname] AS [lastname], 
+      [AuditAccountsSignersEntitlementsView].[middlename] AS [middlename], 
+      [AuditAccountsSignersEntitlementsView].[active] AS [active], 
+      [AuditAccountsSignersEntitlementsView].[entitlement] AS [entitlement], 
+      [AuditAccountsSignersEntitlementsView].[modifieddate] AS [modifieddate], 
+      [AuditAccountsSignersEntitlementsView].[modifiedby] AS [modifiedby], 
+      [AuditAccountsSignersEntitlementsView].[createddate] AS [createddate], 
+      [AuditAccountsSignersEntitlementsView].[createdby] AS [createdby], 
+      [AuditAccountsSignersEntitlementsView].[audit_date] AS [audit_date], 
+      [AuditAccountsSignersEntitlementsView].[action] AS [action], 
+      [AuditAccountsSignersEntitlementsView].[FieldName] AS [FieldName], 
+      [AuditAccountsSignersEntitlementsView].[OldValue] AS [OldValue], 
+      [AuditAccountsSignersEntitlementsView].[NewValue] AS [NewValue]
+      FROM [dbo].[AuditAccountsSignersEntitlementsView] AS [AuditAccountsSignersEntitlementsView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AuditAccountsView" EntityType="TreasuryDocsModel.Store.AuditAccountsView" store:Type="Views" store:Schema="dbo" store:Name="AuditAccountsView">
+            <DefiningQuery>SELECT 
+      [AuditAccountsView].[audit_accountID_pk] AS [audit_accountID_pk], 
+      [AuditAccountsView].[accountnum] AS [accountnum], 
+      [AuditAccountsView].[bank] AS [bank], 
+      [AuditAccountsView].[accounttype] AS [accounttype], 
+      [AuditAccountsView].[entity] AS [entity], 
+      [AuditAccountsView].[currency] AS [currency], 
+      [AuditAccountsView].[opened_date] AS [opened_date], 
+      [AuditAccountsView].[closed_date] AS [closed_date], 
+      [AuditAccountsView].[name] AS [name], 
+      [AuditAccountsView].[active] AS [active], 
+      [AuditAccountsView].[acstatement] AS [acstatement], 
+      [AuditAccountsView].[zba] AS [zba], 
+      [AuditAccountsView].[modifieddate] AS [modifieddate], 
+      [AuditAccountsView].[modifiedby] AS [modifiedby], 
+      [AuditAccountsView].[createddate] AS [createddate], 
+      [AuditAccountsView].[createdby] AS [createdby], 
+      [AuditAccountsView].[action] AS [action], 
+      [AuditAccountsView].[audit_date] AS [audit_date], 
+      [AuditAccountsView].[FieldName] AS [FieldName], 
+      [AuditAccountsView].[OldValue] AS [OldValue], 
+      [AuditAccountsView].[NewValue] AS [NewValue]
+      FROM [dbo].[AuditAccountsView] AS [AuditAccountsView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BADSInfo" EntityType="TreasuryDocsModel.Store.BADSInfo" store:Type="Views" store:Schema="dbo" store:Name="BADSInfo">
+            <DefiningQuery>SELECT 
+      [BADSInfo].[accountNumber] AS [accountNumber], 
+      [BADSInfo].[opened_date] AS [opened_date], 
+      [BADSInfo].[closed_date] AS [closed_date], 
+      [BADSInfo].[modifieddate] AS [modifieddate], 
+      [BADSInfo].[zba] AS [zba], 
+      [BADSInfo].[name] AS [name], 
+      [BADSInfo].[firstname] AS [firstname], 
+      [BADSInfo].[lastname] AS [lastname], 
+      [BADSInfo].[phone] AS [phone], 
+      [BADSInfo].[fax] AS [fax], 
+      [BADSInfo].[email] AS [email], 
+      [BADSInfo].[street1] AS [street1], 
+      [BADSInfo].[street2] AS [street2], 
+      [BADSInfo].[city] AS [city], 
+      [BADSInfo].[zip] AS [zip], 
+      [BADSInfo].[state] AS [state], 
+      [BADSInfo].[notes] AS [notes], 
+      [BADSInfo].[acstatement] AS [acstatement], 
+      [BADSInfo].[currencyCode] AS [currencyCode], 
+      [BADSInfo].[accountName] AS [accountName], 
+      [BADSInfo].[description] AS [description], 
+      [BADSInfo].[entityName] AS [entityName], 
+      [BADSInfo].[taxID] AS [taxID]
+      FROM [dbo].[BADSInfo] AS [BADSInfo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="currView" EntityType="TreasuryDocsModel.Store.currView" store:Type="Views" store:Schema="dbo" store:Name="currView">
+            <DefiningQuery>SELECT 
+      [currView].[accountID_pk] AS [accountID_pk], 
+      [currView].[name] AS [name], 
+      [currView].[currencyCode] AS [currencyCode], 
+      [currView].[currencyName] AS [currencyName]
+      FROM [dbo].[currView] AS [currView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DeletedSignersView" EntityType="TreasuryDocsModel.Store.DeletedSignersView" store:Type="Views" store:Schema="dbo" store:Name="DeletedSignersView">
+            <DefiningQuery>SELECT 
+      [DeletedSignersView].[account_signer_entitlementID_pk] AS [account_signer_entitlementID_pk], 
+      [DeletedSignersView].[accountID_pk] AS [accountID_pk], 
+      [DeletedSignersView].[accountNumber] AS [accountNumber], 
+      [DeletedSignersView].[signerID_pk] AS [signerID_pk], 
+      [DeletedSignersView].[name] AS [name], 
+      [DeletedSignersView].[entitlementGroup] AS [entitlementGroup], 
+      [DeletedSignersView].[added] AS [added], 
+      [DeletedSignersView].[removed] AS [removed], 
+      [DeletedSignersView].[user_add] AS [user_add], 
+      [DeletedSignersView].[user_del] AS [user_del], 
+      [DeletedSignersView].[modifieddate] AS [modifieddate], 
+      [DeletedSignersView].[modifiedby] AS [modifiedby], 
+      [DeletedSignersView].[createddate] AS [createddate], 
+      [DeletedSignersView].[createdby] AS [createdby], 
+      [DeletedSignersView].[entityName] AS [entityName], 
+      [DeletedSignersView].[bankName] AS [bankName], 
+      [DeletedSignersView].[citizenshipID_fk] AS [citizenshipID_fk], 
+      [DeletedSignersView].[bankID_pk] AS [bankID_pk]
+      FROM [dbo].[DeletedSignersView] AS [DeletedSignersView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="FBARSummaryView" EntityType="TreasuryDocsModel.Store.FBARSummaryView" store:Type="Views" store:Schema="dbo" store:Name="FBARSummaryView">
+            <DefiningQuery>SELECT 
+      [FBARSummaryView].[rownum1] AS [rownum1], 
+      [FBARSummaryView].[account_signer_entitlementID_pk] AS [account_signer_entitlementID_pk], 
+      [FBARSummaryView].[AccountID] AS [AccountID], 
+      [FBARSummaryView].[AccountNum] AS [AccountNum], 
+      [FBARSummaryView].[AccountDiv] AS [AccountDiv], 
+      [FBARSummaryView].[AccountName] AS [AccountName], 
+      [FBARSummaryView].[AccountBank] AS [AccountBank], 
+      [FBARSummaryView].[BankAddress] AS [BankAddress], 
+      [FBARSummaryView].[AccountType] AS [AccountType], 
+      [FBARSummaryView].[AccountEntity] AS [AccountEntity], 
+      [FBARSummaryView].[TaxID] AS [TaxID], 
+      [FBARSummaryView].[Address] AS [Address], 
+      [FBARSummaryView].[City] AS [City], 
+      [FBARSummaryView].[State] AS [State], 
+      [FBARSummaryView].[Zip] AS [Zip], 
+      [FBARSummaryView].[Country] AS [Country], 
+      [FBARSummaryView].[AccountCurrency] AS [AccountCurrency], 
+      [FBARSummaryView].[AccountOpened] AS [AccountOpened], 
+      [FBARSummaryView].[AccountClosed] AS [AccountClosed], 
+      [FBARSummaryView].[bankID] AS [bankID], 
+      [FBARSummaryView].[AccountClosedYear] AS [AccountClosedYear], 
+      [FBARSummaryView].[AccountActive] AS [AccountActive], 
+      [FBARSummaryView].[SignerID] AS [SignerID], 
+      [FBARSummaryView].[SignerFirstName] AS [SignerFirstName], 
+      [FBARSummaryView].[SignerLastName] AS [SignerLastName], 
+      [FBARSummaryView].[SignerMiddleName] AS [SignerMiddleName], 
+      [FBARSummaryView].[SignerTitle] AS [SignerTitle], 
+      [FBARSummaryView].[SignerCitizenship] AS [SignerCitizenship], 
+      [FBARSummaryView].[Entitlement] AS [Entitlement], 
+      [FBARSummaryView].[SignerActive] AS [SignerActive], 
+      [FBARSummaryView].[SignerAdded] AS [SignerAdded], 
+      [FBARSummaryView].[SignerRemoved] AS [SignerRemoved], 
+      [FBARSummaryView].[SignerUserAdd] AS [SignerUserAdd], 
+      [FBARSummaryView].[SignerUserDel] AS [SignerUserDel], 
+      [FBARSummaryView].[BalanceID] AS [BalanceID], 
+      [FBARSummaryView].[BalanceMaxUSD] AS [BalanceMaxUSD], 
+      [FBARSummaryView].[BalanceYear] AS [BalanceYear]
+      FROM [dbo].[FBARSummaryView] AS [FBARSummaryView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="FBARView" EntityType="TreasuryDocsModel.Store.FBARView" store:Type="Views" store:Schema="dbo" store:Name="FBARView">
+            <DefiningQuery>SELECT 
+      [FBARView].[rownum1] AS [rownum1], 
+      [FBARView].[account_signer_entitlementID_pk] AS [account_signer_entitlementID_pk], 
+      [FBARView].[AccountID] AS [AccountID], 
+      [FBARView].[AccountNum] AS [AccountNum], 
+      [FBARView].[AccountDiv] AS [AccountDiv], 
+      [FBARView].[AccountName] AS [AccountName], 
+      [FBARView].[AccountBank] AS [AccountBank], 
+      [FBARView].[BankAddress] AS [BankAddress], 
+      [FBARView].[AccountType] AS [AccountType], 
+      [FBARView].[AccountEntity] AS [AccountEntity], 
+      [FBARView].[TaxID] AS [TaxID], 
+      [FBARView].[Address] AS [Address], 
+      [FBARView].[City] AS [City], 
+      [FBARView].[State] AS [State], 
+      [FBARView].[Zip] AS [Zip], 
+      [FBARView].[Country] AS [Country], 
+      [FBARView].[AccountCurrency] AS [AccountCurrency], 
+      [FBARView].[AccountOpened] AS [AccountOpened], 
+      [FBARView].[AccountClosed] AS [AccountClosed], 
+      [FBARView].[bankID] AS [bankID], 
+      [FBARView].[AccountClosedYear] AS [AccountClosedYear], 
+      [FBARView].[AccountActive] AS [AccountActive], 
+      [FBARView].[SignerID] AS [SignerID], 
+      [FBARView].[SignerFirstName] AS [SignerFirstName], 
+      [FBARView].[SignerLastName] AS [SignerLastName], 
+      [FBARView].[SignerMiddleName] AS [SignerMiddleName], 
+      [FBARView].[SignerTitle] AS [SignerTitle], 
+      [FBARView].[SignerCitizenship] AS [SignerCitizenship], 
+      [FBARView].[Entitlement] AS [Entitlement], 
+      [FBARView].[SignerActive] AS [SignerActive], 
+      [FBARView].[SignerAdded] AS [SignerAdded], 
+      [FBARView].[SignerRemoved] AS [SignerRemoved], 
+      [FBARView].[SignerUserAdd] AS [SignerUserAdd], 
+      [FBARView].[SignerUserDel] AS [SignerUserDel], 
+      [FBARView].[BalanceID] AS [BalanceID], 
+      [FBARView].[BalanceMaxUSD] AS [BalanceMaxUSD], 
+      [FBARView].[BalanceYear] AS [BalanceYear]
+      FROM [dbo].[FBARView] AS [FBARView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="rptActiveSigners" EntityType="TreasuryDocsModel.Store.rptActiveSigners" store:Type="Views" store:Schema="dbo" store:Name="rptActiveSigners">
+            <DefiningQuery>SELECT 
+      [rptActiveSigners].[ID] AS [ID], 
+      [rptActiveSigners].[AccountNum] AS [AccountNum], 
+      [rptActiveSigners].[AccountDiv] AS [AccountDiv], 
+      [rptActiveSigners].[AccountName] AS [AccountName], 
+      [rptActiveSigners].[AccountOpened] AS [AccountOpened], 
+      [rptActiveSigners].[AccountBank] AS [AccountBank], 
+      [rptActiveSigners].[SignerFirstName] AS [SignerFirstName], 
+      [rptActiveSigners].[SignerLastName] AS [SignerLastName], 
+      [rptActiveSigners].[SignerCitizenship] AS [SignerCitizenship], 
+      [rptActiveSigners].[Entitlement] AS [Entitlement], 
+      [rptActiveSigners].[Signer Added] AS [Signer Added]
+      FROM [dbo].[rptActiveSigners] AS [rptActiveSigners]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="rptEPMonthlyAccountActivity" EntityType="TreasuryDocsModel.Store.rptEPMonthlyAccountActivity" store:Type="Views" store:Schema="dbo" store:Name="rptEPMonthlyAccountActivity">
+            <DefiningQuery>SELECT 
+      [rptEPMonthlyAccountActivity].[AccountNum] AS [AccountNum], 
+      [rptEPMonthlyAccountActivity].[CurrencyCode] AS [CurrencyCode], 
+      [rptEPMonthlyAccountActivity].[AccountName] AS [AccountName], 
+      [rptEPMonthlyAccountActivity].[EntityName] AS [EntityName], 
+      [rptEPMonthlyAccountActivity].[BankName] AS [BankName], 
+      [rptEPMonthlyAccountActivity].[ABA] AS [ABA], 
+      [rptEPMonthlyAccountActivity].[OpenedDate] AS [OpenedDate], 
+      [rptEPMonthlyAccountActivity].[ClosedDate] AS [ClosedDate], 
+      [rptEPMonthlyAccountActivity].[Status] AS [Status]
+      FROM [dbo].[rptEPMonthlyAccountActivity] AS [rptEPMonthlyAccountActivity]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SignerNameView" EntityType="TreasuryDocsModel.Store.SignerNameView" store:Type="Views" store:Schema="dbo" store:Name="SignerNameView">
+            <DefiningQuery>SELECT 
+      [SignerNameView].[signerID] AS [signerID], 
+      [SignerNameView].[name] AS [name]
+      FROM [dbo].[SignerNameView] AS [SignerNameView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SignersView" EntityType="TreasuryDocsModel.Store.SignersView" store:Type="Views" store:Schema="dbo" store:Name="SignersView">
+            <DefiningQuery>SELECT 
+      [SignersView].[signerID_pk] AS [signerID_pk], 
+      [SignersView].[firstname] AS [firstname], 
+      [SignersView].[lastname] AS [lastname], 
+      [SignersView].[middlename] AS [middlename], 
+      [SignersView].[title] AS [title], 
+      [SignersView].[citizenshipName] AS [citizenshipName], 
+      [SignersView].[active] AS [active], 
+      [SignersView].[modifieddate] AS [modifieddate], 
+      [SignersView].[modifiedby] AS [modifiedby], 
+      [SignersView].[createddate] AS [createddate], 
+      [SignersView].[createdby] AS [createdby]
+      FROM [dbo].[SignersView] AS [SignersView]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Accounts_AccountTypes" Association="TreasuryDocsModel.Store.FK_Accounts_AccountTypes">
+            <End Role="AccountTypes" EntitySet="AccountTypes" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Active" Association="TreasuryDocsModel.Store.FK_Accounts_Active">
+            <End Role="Active" EntitySet="Active" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Currencies" Association="TreasuryDocsModel.Store.FK_Accounts_Currencies">
+            <End Role="Currencies" EntitySet="Currencies" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Divisions" Association="TreasuryDocsModel.Store.FK_Accounts_Divisions">
+            <End Role="Divisions" EntitySet="Divisions" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Entities" Association="TreasuryDocsModel.Store.FK_Accounts_Entities">
+            <End Role="Entities" EntitySet="Entities" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Signers_Entitlements_Accounts1" Association="TreasuryDocsModel.Store.FK_Accounts_Signers_Entitlements_Accounts1">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Accounts_Signers_Entitlements" EntitySet="Accounts_Signers_Entitlements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Signers_Entitlements_Entitlements" Association="TreasuryDocsModel.Store.FK_Accounts_Signers_Entitlements_Entitlements">
+            <End Role="Entitlements" EntitySet="Entitlements" />
+            <End Role="Accounts_Signers_Entitlements" EntitySet="Accounts_Signers_Entitlements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Signers_Entitlements_Signers" Association="TreasuryDocsModel.Store.FK_Accounts_Signers_Entitlements_Signers">
+            <End Role="Signers" EntitySet="Signers" />
+            <End Role="Accounts_Signers_Entitlements" EntitySet="Accounts_Signers_Entitlements" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="accountID_pk" />
+          </Key>
+          <Property Name="accountID_pk" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="accountNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="bankID_fk" Type="int" Nullable="false" />
+          <Property Name="typeID_fk" Type="int" Nullable="false" />
+          <Property Name="entityID_fk" Type="int" Nullable="false" />
+          <Property Name="currencyID_fk" Type="int" Nullable="false" />
+          <Property Name="divisionsID_fk" Type="int" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+          <Property Name="opened_date" Type="datetime" />
+          <Property Name="closed_date" Type="datetime" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="acstatement" Type="nvarchar" MaxLength="50" />
+          <Property Name="zba" Type="nvarchar" MaxLength="50" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Accounts_Signers_Entitlements">
+          <Key>
+            <PropertyRef Name="account_signer_entitlementID_pk" />
+          </Key>
+          <Property Name="account_signer_entitlementID_pk" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="accountID_fk" Type="int" Nullable="false" />
+          <Property Name="signerID_fk" Type="int" Nullable="false" />
+          <Property Name="entitlementID_fk" Type="int" Nullable="false" />
+          <Property Name="added" Type="datetime" />
+          <Property Name="removed" Type="datetime" />
+          <Property Name="user_add" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_del" Type="nvarchar" MaxLength="50" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AccountTypes">
+          <Key>
+            <PropertyRef Name="accounttypeID_pk" />
+          </Key>
+          <Property Name="accounttypeID_pk" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="nvarchar" MaxLength="100" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Active">
+          <Key>
+            <PropertyRef Name="activeBit" />
+          </Key>
+          <Property Name="activeBit" Type="bit" Nullable="false" />
+          <Property Name="description" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Audit_Accounts">
+          <Key>
+            <PropertyRef Name="audit_accountID_pk" />
+          </Key>
+          <Property Name="audit_accountID_pk" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="accountID_pk" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="bankID_fk" Type="int" Nullable="false" />
+          <Property Name="typeID_fk" Type="int" Nullable="false" />
+          <Property Name="entityID_fk" Type="int" Nullable="false" />
+          <Property Name="currencyID_fk" Type="int" Nullable="false" />
+          <Property Name="opened_date" Type="datetime" />
+          <Property Name="closed_date" Type="datetime" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="active" Type="bit" />
+          <Property Name="acstatement" Type="nvarchar" MaxLength="50" />
+          <Property Name="zba" Type="nvarchar" MaxLength="50" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+          <Property Name="action" Type="nvarchar" MaxLength="50" />
+          <Property Name="audit_date" Type="datetime" />
+          <Property Name="FieldName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OldValue" Type="nvarchar" MaxLength="50" />
+          <Property Name="NewValue" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Audit_Accounts_Signers_Entitlements">
+          <Key>
+            <PropertyRef Name="audit_account_signer_entitlementID_pk" />
+          </Key>
+          <Property Name="audit_account_signer_entitlementID_pk" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="accountID_fk" Type="nvarchar" MaxLength="25" />
+          <Property Name="signerID_fk" Type="int" />
+          <Property Name="entitlementID_fk" Type="int" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+          <Property Name="audit_date" Type="datetime" />
+          <Property Name="action" Type="nvarchar" MaxLength="50" />
+          <Property Name="FieldName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OldValue" Type="nvarchar" MaxLength="50" />
+          <Property Name="NewValue" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Balances">
+          <Key>
+            <PropertyRef Name="balanceID_pk" />
+          </Key>
+          <Property Name="balanceID_pk" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="accountNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="balance" Type="money" />
+          <Property Name="year" Type="nvarchar" MaxLength="50" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Banks">
+          <Key>
+            <PropertyRef Name="bankID_pk" />
+          </Key>
+          <Property Name="bankID_pk" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="abanum" Type="nvarchar" MaxLength="50" />
+          <Property Name="notes" Type="nvarchar" MaxLength="100" />
+          <Property Name="active" Type="bit" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Citizenships">
+          <Key>
+            <PropertyRef Name="citizenshipID_pk" />
+          </Key>
+          <Property Name="citizenshipID_pk" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="citizenshipCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="citizenshipName" Type="nvarchar" MaxLength="50" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="contactID_pk" />
+          </Key>
+          <Property Name="contactID_pk" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="bankID_fk" Type="int" Nullable="false" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" />
+          <Property Name="middlename" Type="nvarchar" MaxLength="50" />
+          <Property Name="title" Type="nvarchar" MaxLength="60" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="street1" Type="nvarchar" MaxLength="50" />
+          <Property Name="street2" Type="nvarchar" MaxLength="50" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" />
+          <Property Name="state" Type="nvarchar" MaxLength="2" />
+          <Property Name="country" Type="nvarchar" MaxLength="50" />
+          <Property Name="zip" Type="nvarchar" MaxLength="50" />
+          <Property Name="active" Type="bit" />
+          <Property Name="isPrimary" Type="bit" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Currencies">
+          <Key>
+            <PropertyRef Name="currencyID_pk" />
+          </Key>
+          <Property Name="currencyID_pk" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="currencyCode" Type="nvarchar" MaxLength="3" />
+          <Property Name="currencyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Divisions">
+          <Key>
+            <PropertyRef Name="divisionID_pk" />
+          </Key>
+          <Property Name="divisionID_pk" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="divisionCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="divisionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Entities">
+          <Key>
+            <PropertyRef Name="entityID_pk" />
+          </Key>
+          <Property Name="entityID_pk" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="taxID" Type="nvarchar" MaxLength="50" />
+          <Property Name="notes" Type="nvarchar" MaxLength="100" />
+          <Property Name="active" Type="bit" />
+          <Property Name="street1" Type="nvarchar" MaxLength="100" />
+          <Property Name="street2" Type="nvarchar" MaxLength="50" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" />
+          <Property Name="state" Type="nvarchar" MaxLength="50" />
+          <Property Name="country" Type="nvarchar" MaxLength="50" />
+          <Property Name="zip" Type="nvarchar" MaxLength="50" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Entitlements">
+          <Key>
+            <PropertyRef Name="entitlementID_pk" />
+          </Key>
+          <Property Name="entitlementID_pk" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="entitlementGroup" Type="nchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" MaxLength="300" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Signers">
+          <Key>
+            <PropertyRef Name="signerID_pk" />
+          </Key>
+          <Property Name="signerID_pk" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" />
+          <Property Name="middlename" Type="nvarchar" MaxLength="50" />
+          <Property Name="title" Type="nvarchar" MaxLength="60" />
+          <Property Name="citizenshipID_fk" Type="int" />
+          <Property Name="active" Type="bit" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+          <Property Name="deactivation_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TreasuryDocs.dbo.AccountsContactsView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="AccountsContactsView">
+          <Key>
+            <PropertyRef Name="contactID_pk" />
+            <PropertyRef Name="account_contact_pk" />
+            <PropertyRef Name="accountID_pk" />
+          </Key>
+          <Property Name="contactID_pk" Type="int" Nullable="false" />
+          <Property Name="account_contact_pk" Type="int" Nullable="false" />
+          <Property Name="accountID_pk" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" />
+          <Property Name="title" Type="nvarchar" MaxLength="60" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="active" Type="bit" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="modifieddate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TreasuryDocs.dbo.AccountSignerEntitlementsView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="AccountSignerEntitlementsView">
+          <Key>
+            <PropertyRef Name="accountNumber" />
+            <PropertyRef Name="entitlementID_fk" />
+          </Key>
+          <Property Name="description" Type="nvarchar" MaxLength="300" />
+          <Property Name="accountNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" />
+          <Property Name="middlename" Type="nvarchar" MaxLength="50" />
+          <Property Name="entitlementID_fk" Type="int" Nullable="false" />
+          <Property Name="citizenshipCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="entitlementGroup" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TreasuryDocs.dbo.AccountsSignersView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="AccountsSignersView">
+          <Key>
+            <PropertyRef Name="account_signer_entitlementID_pk" />
+            <PropertyRef Name="accountID_pk" />
+            <PropertyRef Name="accountNumber" />
+            <PropertyRef Name="signerID_pk" />
+          </Key>
+          <Property Name="account_signer_entitlementID_pk" Type="int" Nullable="false" />
+          <Property Name="accountID_pk" Type="int" Nullable="false" />
+          <Property Name="accountNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="signerID_pk" Type="int" Nullable="false" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" />
+          <Property Name="entitlementGroup" Type="nchar" MaxLength="50" />
+          <Property Name="added" Type="datetime" />
+          <Property Name="removed" Type="datetime" />
+          <Property Name="user_add" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_del" Type="nvarchar" MaxLength="50" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TreasuryDocs.dbo.AccountsView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="AccountsView">
+          <Key>
+            <PropertyRef Name="accountID" />
+            <PropertyRef Name="accountNumber" />
+            <PropertyRef Name="bankID_pk" />
+            <PropertyRef Name="bank" />
+            <PropertyRef Name="active" />
+          </Key>
+          <Property Name="accountID" Type="int" Nullable="false" />
+          <Property Name="accountNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="divisionCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="bankID_pk" Type="int" Nullable="false" />
+          <Property Name="bank" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="accountType" Type="nvarchar" MaxLength="100" />
+          <Property Name="entity" Type="nvarchar" MaxLength="50" />
+          <Property Name="taxID" Type="nvarchar" MaxLength="50" />
+          <Property Name="currencyCode" Type="nvarchar" MaxLength="3" />
+          <Property Name="opened_date" Type="datetime" />
+          <Property Name="closed_date" Type="datetime" />
+          <Property Name="active" Type="bit" Nullable="false" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+          <Property Name="acstatement" Type="nvarchar" MaxLength="50" />
+          <Property Name="zba" Type="nvarchar" MaxLength="50" />
+          <Property Name="notes" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TreasuryDocs.dbo.AllAccountsSignersView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="AllAccountsSignersView">
+          <Key>
+            <PropertyRef Name="account_signer_entitlementID_pk" />
+            <PropertyRef Name="accountID_pk" />
+            <PropertyRef Name="accountNumber" />
+            <PropertyRef Name="signerID_pk" />
+          </Key>
+          <Property Name="account_signer_entitlementID_pk" Type="int" Nullable="false" />
+          <Property Name="accountID_pk" Type="int" Nullable="false" />
+          <Property Name="accountNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="signerID_pk" Type="int" Nullable="false" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" />
+          <Property Name="entitlementGroup" Type="nchar" MaxLength="50" />
+          <Property Name="added" Type="datetime" />
+          <Property Name="removed" Type="datetime" />
+          <Property Name="user_add" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_del" Type="nvarchar" MaxLength="50" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TreasuryDocs.dbo.AuditAccountsContactsView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="AuditAccountsContactsView">
+          <Key>
+            <PropertyRef Name="audit_account_contactID_pk" />
+            <PropertyRef Name="accountID" />
+            <PropertyRef Name="bank" />
+          </Key>
+          <Property Name="audit_account_contactID_pk" Type="int" Nullable="false" />
+          <Property Name="accountID" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="accountname" Type="nvarchar" MaxLength="50" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" />
+          <Property Name="middlename" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="active" Type="bit" />
+          <Property Name="bank" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+          <Property Name="audit_date" Type="datetime" />
+          <Property Name="action" Type="nvarchar" MaxLength="50" />
+          <Property Name="FieldName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OldValue" Type="nvarchar" MaxLength="50" />
+          <Property Name="NewValue" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TreasuryDocs.dbo.AuditAccountsSignersEntitlementsView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="AuditAccountsSignersEntitlementsView">
+          <Key>
+            <PropertyRef Name="audit_account_signer_entitlementID_pk" />
+          </Key>
+          <Property Name="audit_account_signer_entitlementID_pk" Type="int" Nullable="false" />
+          <Property Name="accountID" Type="nvarchar" MaxLength="25" />
+          <Property Name="accountname" Type="nvarchar" MaxLength="50" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" />
+          <Property Name="middlename" Type="nvarchar" MaxLength="50" />
+          <Property Name="active" Type="bit" />
+          <Property Name="entitlement" Type="nvarchar" MaxLength="50" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+          <Property Name="audit_date" Type="datetime" />
+          <Property Name="action" Type="nvarchar" MaxLength="50" />
+          <Property Name="FieldName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OldValue" Type="nvarchar" MaxLength="50" />
+          <Property Name="NewValue" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TreasuryDocs.dbo.AuditAccountsView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="AuditAccountsView">
+          <Key>
+            <PropertyRef Name="audit_accountID_pk" />
+            <PropertyRef Name="accountnum" />
+            <PropertyRef Name="bank" />
+          </Key>
+          <Property Name="audit_accountID_pk" Type="int" Nullable="false" />
+          <Property Name="accountnum" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="bank" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="accounttype" Type="nvarchar" MaxLength="100" />
+          <Property Name="entity" Type="nvarchar" MaxLength="50" />
+          <Property Name="currency" Type="nvarchar" MaxLength="3" />
+          <Property Name="opened_date" Type="datetime" />
+          <Property Name="closed_date" Type="datetime" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="active" Type="bit" />
+          <Property Name="acstatement" Type="nvarchar" MaxLength="50" />
+          <Property Name="zba" Type="nvarchar" MaxLength="50" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+          <Property Name="action" Type="nvarchar" MaxLength="50" />
+          <Property Name="audit_date" Type="datetime" />
+          <Property Name="FieldName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OldValue" Type="nvarchar" MaxLength="50" />
+          <Property Name="NewValue" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TreasuryDocs.dbo.BADSInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="BADSInfo">
+          <Key>
+            <PropertyRef Name="accountNumber" />
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="accountNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="opened_date" Type="datetime" />
+          <Property Name="closed_date" Type="datetime" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="zba" Type="nvarchar" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="street1" Type="nvarchar" MaxLength="50" />
+          <Property Name="street2" Type="nvarchar" MaxLength="50" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" />
+          <Property Name="zip" Type="nvarchar" MaxLength="50" />
+          <Property Name="state" Type="nvarchar" MaxLength="2" />
+          <Property Name="notes" Type="nvarchar" MaxLength="100" />
+          <Property Name="acstatement" Type="nvarchar" MaxLength="50" />
+          <Property Name="currencyCode" Type="nvarchar" MaxLength="3" />
+          <Property Name="accountName" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" MaxLength="100" />
+          <Property Name="entityName" Type="nvarchar" MaxLength="50" />
+          <Property Name="taxID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TreasuryDocs.dbo.currView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="currView">
+          <Key>
+            <PropertyRef Name="accountID_pk" />
+          </Key>
+          <Property Name="accountID_pk" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="currencyCode" Type="nvarchar" MaxLength="3" />
+          <Property Name="currencyName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TreasuryDocs.dbo.DeletedSignersView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="DeletedSignersView">
+          <Key>
+            <PropertyRef Name="account_signer_entitlementID_pk" />
+            <PropertyRef Name="accountID_pk" />
+            <PropertyRef Name="accountNumber" />
+            <PropertyRef Name="signerID_pk" />
+            <PropertyRef Name="bankName" />
+            <PropertyRef Name="bankID_pk" />
+          </Key>
+          <Property Name="account_signer_entitlementID_pk" Type="int" Nullable="false" />
+          <Property Name="accountID_pk" Type="int" Nullable="false" />
+          <Property Name="accountNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="signerID_pk" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="154" />
+          <Property Name="entitlementGroup" Type="nchar" MaxLength="50" />
+          <Property Name="added" Type="datetime" />
+          <Property Name="removed" Type="datetime" />
+          <Property Name="user_add" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_del" Type="nvarchar" MaxLength="50" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+          <Property Name="entityName" Type="nvarchar" MaxLength="50" />
+          <Property Name="bankName" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="citizenshipID_fk" Type="int" />
+          <Property Name="bankID_pk" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TreasuryDocs.dbo.FBARSummaryView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="FBARSummaryView">
+          <Key>
+            <PropertyRef Name="account_signer_entitlementID_pk" />
+            <PropertyRef Name="AccountID" />
+            <PropertyRef Name="AccountNum" />
+            <PropertyRef Name="AccountBank" />
+            <PropertyRef Name="bankID" />
+            <PropertyRef Name="AccountActive" />
+            <PropertyRef Name="SignerID" />
+            <PropertyRef Name="SignerRemoved" />
+          </Key>
+          <Property Name="rownum1" Type="bigint" />
+          <Property Name="account_signer_entitlementID_pk" Type="int" Nullable="false" />
+          <Property Name="AccountID" Type="int" Nullable="false" />
+          <Property Name="AccountNum" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="AccountDiv" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountBank" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="BankAddress" Type="nvarchar" MaxLength="252" />
+          <Property Name="AccountType" Type="nvarchar" MaxLength="100" />
+          <Property Name="AccountEntity" Type="nvarchar" MaxLength="50" />
+          <Property Name="TaxID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountCurrency" Type="nvarchar" MaxLength="3" />
+          <Property Name="AccountOpened" Type="datetime" />
+          <Property Name="AccountClosed" Type="datetime" />
+          <Property Name="bankID" Type="int" Nullable="false" />
+          <Property Name="AccountClosedYear" Type="int" />
+          <Property Name="AccountActive" Type="bit" Nullable="false" />
+          <Property Name="SignerID" Type="int" Nullable="false" />
+          <Property Name="SignerFirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SignerLastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SignerMiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SignerTitle" Type="nvarchar" MaxLength="60" />
+          <Property Name="SignerCitizenship" Type="nvarchar" MaxLength="50" />
+          <Property Name="Entitlement" Type="nchar" MaxLength="50" />
+          <Property Name="SignerActive" Type="bit" />
+          <Property Name="SignerAdded" Type="datetime" />
+          <Property Name="SignerRemoved" Type="datetime" Nullable="false" />
+          <Property Name="SignerUserAdd" Type="nvarchar" MaxLength="50" />
+          <Property Name="SignerUserDel" Type="nvarchar" MaxLength="50" />
+          <Property Name="BalanceID" Type="int" />
+          <Property Name="BalanceMaxUSD" Type="money" />
+          <Property Name="BalanceYear" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TreasuryDocs.dbo.FBARView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="FBARView">
+          <Key>
+            <PropertyRef Name="account_signer_entitlementID_pk" />
+            <PropertyRef Name="AccountID" />
+            <PropertyRef Name="AccountNum" />
+            <PropertyRef Name="AccountBank" />
+            <PropertyRef Name="bankID" />
+            <PropertyRef Name="AccountActive" />
+            <PropertyRef Name="SignerID" />
+            <PropertyRef Name="SignerRemoved" />
+          </Key>
+          <Property Name="rownum1" Type="bigint" />
+          <Property Name="account_signer_entitlementID_pk" Type="int" Nullable="false" />
+          <Property Name="AccountID" Type="int" Nullable="false" />
+          <Property Name="AccountNum" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="AccountDiv" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountBank" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="BankAddress" Type="nvarchar" MaxLength="252" />
+          <Property Name="AccountType" Type="nvarchar" MaxLength="100" />
+          <Property Name="AccountEntity" Type="nvarchar" MaxLength="50" />
+          <Property Name="TaxID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountCurrency" Type="nvarchar" MaxLength="3" />
+          <Property Name="AccountOpened" Type="datetime" />
+          <Property Name="AccountClosed" Type="datetime" />
+          <Property Name="bankID" Type="int" Nullable="false" />
+          <Property Name="AccountClosedYear" Type="int" />
+          <Property Name="AccountActive" Type="bit" Nullable="false" />
+          <Property Name="SignerID" Type="int" Nullable="false" />
+          <Property Name="SignerFirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SignerLastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SignerMiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SignerTitle" Type="nvarchar" MaxLength="60" />
+          <Property Name="SignerCitizenship" Type="nvarchar" MaxLength="50" />
+          <Property Name="Entitlement" Type="nchar" MaxLength="50" />
+          <Property Name="SignerActive" Type="bit" />
+          <Property Name="SignerAdded" Type="datetime" />
+          <Property Name="SignerRemoved" Type="datetime" Nullable="false" />
+          <Property Name="SignerUserAdd" Type="nvarchar" MaxLength="50" />
+          <Property Name="SignerUserDel" Type="nvarchar" MaxLength="50" />
+          <Property Name="BalanceID" Type="int" />
+          <Property Name="BalanceMaxUSD" Type="money" />
+          <Property Name="BalanceYear" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TreasuryDocs.dbo.rptActiveSigners' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="rptActiveSigners">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="AccountNum" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="AccountDiv" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountOpened" Type="datetime" />
+          <Property Name="AccountBank" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="SignerFirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SignerLastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SignerCitizenship" Type="nvarchar" MaxLength="50" />
+          <Property Name="Entitlement" Type="nchar" MaxLength="50" />
+          <Property Name="Signer Added" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TreasuryDocs.dbo.rptEPMonthlyAccountActivity' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="rptEPMonthlyAccountActivity">
+          <Key>
+            <PropertyRef Name="AccountNum" />
+            <PropertyRef Name="BankName" />
+          </Key>
+          <Property Name="AccountNum" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CurrencyCode" Type="nvarchar" MaxLength="3" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EntityName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BankName" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="ABA" Type="nvarchar" MaxLength="50" />
+          <Property Name="OpenedDate" Type="datetime" />
+          <Property Name="ClosedDate" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="8" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TreasuryDocs.dbo.SignerNameView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="SignerNameView">
+          <Key>
+            <PropertyRef Name="signerID" />
+          </Key>
+          <Property Name="signerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" MaxLength="101" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TreasuryDocs.dbo.SignersView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="SignersView">
+          <Key>
+            <PropertyRef Name="signerID_pk" />
+          </Key>
+          <Property Name="signerID_pk" Type="int" Nullable="false" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" />
+          <Property Name="middlename" Type="nvarchar" MaxLength="50" />
+          <Property Name="title" Type="nvarchar" MaxLength="60" />
+          <Property Name="citizenshipName" Type="nvarchar" MaxLength="50" />
+          <Property Name="active" Type="bit" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Accounts_AccountTypes">
+          <End Role="AccountTypes" Type="TreasuryDocsModel.Store.AccountTypes" Multiplicity="1" />
+          <End Role="Accounts" Type="TreasuryDocsModel.Store.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountTypes">
+              <PropertyRef Name="accounttypeID_pk" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="typeID_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Active">
+          <End Role="Active" Type="TreasuryDocsModel.Store.Active" Multiplicity="1" />
+          <End Role="Accounts" Type="TreasuryDocsModel.Store.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Active">
+              <PropertyRef Name="activeBit" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="active" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Currencies">
+          <End Role="Currencies" Type="TreasuryDocsModel.Store.Currencies" Multiplicity="1" />
+          <End Role="Accounts" Type="TreasuryDocsModel.Store.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currencies">
+              <PropertyRef Name="currencyID_pk" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="currencyID_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Divisions">
+          <End Role="Divisions" Type="TreasuryDocsModel.Store.Divisions" Multiplicity="1" />
+          <End Role="Accounts" Type="TreasuryDocsModel.Store.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Divisions">
+              <PropertyRef Name="divisionID_pk" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="divisionsID_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Entities">
+          <End Role="Entities" Type="TreasuryDocsModel.Store.Entities" Multiplicity="1" />
+          <End Role="Accounts" Type="TreasuryDocsModel.Store.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entities">
+              <PropertyRef Name="entityID_pk" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="entityID_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Signers_Entitlements_Accounts1">
+          <End Role="Accounts" Type="TreasuryDocsModel.Store.Accounts" Multiplicity="1" />
+          <End Role="Accounts_Signers_Entitlements" Type="TreasuryDocsModel.Store.Accounts_Signers_Entitlements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="accountID_pk" />
+            </Principal>
+            <Dependent Role="Accounts_Signers_Entitlements">
+              <PropertyRef Name="accountID_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Signers_Entitlements_Entitlements">
+          <End Role="Entitlements" Type="TreasuryDocsModel.Store.Entitlements" Multiplicity="1" />
+          <End Role="Accounts_Signers_Entitlements" Type="TreasuryDocsModel.Store.Accounts_Signers_Entitlements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entitlements">
+              <PropertyRef Name="entitlementID_pk" />
+            </Principal>
+            <Dependent Role="Accounts_Signers_Entitlements">
+              <PropertyRef Name="entitlementID_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Signers_Entitlements_Signers">
+          <End Role="Signers" Type="TreasuryDocsModel.Store.Signers" Multiplicity="1" />
+          <End Role="Accounts_Signers_Entitlements" Type="TreasuryDocsModel.Store.Accounts_Signers_Entitlements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Signers">
+              <PropertyRef Name="signerID_pk" />
+            </Principal>
+            <Dependent Role="Accounts_Signers_Entitlements">
+              <PropertyRef Name="signerID_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getContactsByBankID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetEntitlementsByAccountNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="accountNumber" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetPrimaryContactsByBankID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bankId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="RemoveAccountSignerEntitlement" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="acctSignerId" Type="int" Mode="In" />
+          <Parameter Name="userName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TreasuryDocsModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="TreasuryDocsEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="TreasuryDocsModel.Accounts" />
+          <EntitySet Name="Accounts_Signers_Entitlements" EntityType="TreasuryDocsModel.Accounts_Signers_Entitlements" />
+          <EntitySet Name="AccountTypes" EntityType="TreasuryDocsModel.AccountTypes" />
+          <EntitySet Name="Active" EntityType="TreasuryDocsModel.Active" />
+          <EntitySet Name="Audit_Accounts" EntityType="TreasuryDocsModel.Audit_Accounts" />
+          <EntitySet Name="Audit_Accounts_Signers_Entitlements" EntityType="TreasuryDocsModel.Audit_Accounts_Signers_Entitlements" />
+          <EntitySet Name="Balances" EntityType="TreasuryDocsModel.Balances" />
+          <EntitySet Name="Banks" EntityType="TreasuryDocsModel.Banks" />
+          <EntitySet Name="Citizenships" EntityType="TreasuryDocsModel.Citizenships" />
+          <EntitySet Name="Currencies" EntityType="TreasuryDocsModel.Currencies" />
+          <EntitySet Name="Divisions" EntityType="TreasuryDocsModel.Divisions" />
+          <EntitySet Name="Entities" EntityType="TreasuryDocsModel.Entities" />
+          <EntitySet Name="Entitlements" EntityType="TreasuryDocsModel.Entitlements" />
+          <EntitySet Name="Signers" EntityType="TreasuryDocsModel.Signers" />
+          <EntitySet Name="sysdiagrams" EntityType="TreasuryDocsModel.sysdiagrams" />
+          <EntitySet Name="AccountsContactsView" EntityType="TreasuryDocsModel.AccountsContactsView" />
+          <EntitySet Name="AllAccountsSignersView" EntityType="TreasuryDocsModel.AllAccountsSignersView" />
+          <EntitySet Name="AuditAccountsContactsView" EntityType="TreasuryDocsModel.AuditAccountsContactsView" />
+          <EntitySet Name="AuditAccountsSignersEntitlementsView" EntityType="TreasuryDocsModel.AuditAccountsSignersEntitlementsView" />
+          <EntitySet Name="AuditAccountsView" EntityType="TreasuryDocsModel.AuditAccountsView" />
+          <EntitySet Name="currView" EntityType="TreasuryDocsModel.currView" />
+          <EntitySet Name="SignerNameView" EntityType="TreasuryDocsModel.SignerNameView" />
+          <EntitySet Name="SignersView" EntityType="TreasuryDocsModel.SignersView" />
+          <AssociationSet Name="FK_Accounts_AccountTypes" Association="TreasuryDocsModel.FK_Accounts_AccountTypes">
+            <End Role="AccountTypes" EntitySet="AccountTypes" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Active" Association="TreasuryDocsModel.FK_Accounts_Active">
+            <End Role="Active" EntitySet="Active" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Banks" Association="TreasuryDocsModel.FK_Accounts_Banks">
+            <End Role="Banks" EntitySet="Banks" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Currencies" Association="TreasuryDocsModel.FK_Accounts_Currencies">
+            <End Role="Currencies" EntitySet="Currencies" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Divisions" Association="TreasuryDocsModel.FK_Accounts_Divisions">
+            <End Role="Divisions" EntitySet="Divisions" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Entities" Association="TreasuryDocsModel.FK_Accounts_Entities">
+            <End Role="Entities" EntitySet="Entities" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Signers_Entitlements_Accounts" Association="TreasuryDocsModel.FK_Accounts_Signers_Entitlements_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Accounts_Signers_Entitlements" EntitySet="Accounts_Signers_Entitlements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Signers_Entitlements_Entitlements" Association="TreasuryDocsModel.FK_Accounts_Signers_Entitlements_Entitlements">
+            <End Role="Entitlements" EntitySet="Entitlements" />
+            <End Role="Accounts_Signers_Entitlements" EntitySet="Accounts_Signers_Entitlements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Signers_Entitlements_Signers" Association="TreasuryDocsModel.FK_Accounts_Signers_Entitlements_Signers">
+            <End Role="Signers" EntitySet="Signers" />
+            <End Role="Accounts_Signers_Entitlements" EntitySet="Accounts_Signers_Entitlements" />
+          </AssociationSet>
+          <EntitySet Name="Contacts" EntityType="TreasuryDocsModel.Contacts" />
+          <EntitySet Name="BADSInfo" EntityType="TreasuryDocsModel.BADSInfo" />
+          <EntitySet Name="AccountSignerEntitlementsView" EntityType="TreasuryDocsModel.AccountSignerEntitlementsView" />
+          <FunctionImport Name="GetEntitlementsByAccountNumber" EntitySet="AccountSignerEntitlementsView" ReturnType="Collection(TreasuryDocsModel.AccountSignerEntitlementsView)">
+          <Parameter Name="accountNumber" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetPrimaryContactsByBankId" EntitySet="Contacts" ReturnType="Collection(TreasuryDocsModel.Contacts)">
+          <Parameter Name="bankId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="RemoveAccountSignerEntitlement">
+            <Parameter Name="acctSignerId" Mode="In" Type="Int32" />
+            <Parameter Name="userName" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="DeletedSignersView" EntityType="TreasuryDocsModel.DeletedSignersView" />
+          <EntitySet Name="AccountsView" EntityType="TreasuryDocsModel.AccountsView" />
+          <EntitySet Name="AccountsSignersView" EntityType="TreasuryDocsModel.AccountsSignersView" />
+          <EntitySet Name="FBARView" EntityType="TreasuryDocsModel.FBARView" />
+          <EntitySet Name="FBARSummaryView" EntityType="TreasuryDocsModel.FBARSummaryView" />
+          <EntitySet Name="rptEPMonthlyAccountActivity" EntityType="TreasuryDocsModel.rptEPMonthlyAccountActivity" />
+          <EntitySet Name="rptActiveSigners" EntityType="TreasuryDocsModel.rptActiveSigners" />
+          </EntityContainer>
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="accountID_pk" />
+          </Key>
+          <Property Name="accountID_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="accountNumber" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="bankID_fk" Type="Int32" Nullable="false" />
+          <Property Name="typeID_fk" Type="Int32" Nullable="false" />
+          <Property Name="entityID_fk" Type="Int32" Nullable="false" />
+          <Property Name="currencyID_fk" Type="Int32" Nullable="false" />
+          <Property Name="divisionsID_fk" Type="Int32" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <Property Name="opened_date" Type="DateTime" />
+          <Property Name="closed_date" Type="DateTime" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="acstatement" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="zba" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="AccountTypes" Relationship="TreasuryDocsModel.FK_Accounts_AccountTypes" FromRole="Accounts" ToRole="AccountTypes" />
+          <NavigationProperty Name="Active1" Relationship="TreasuryDocsModel.FK_Accounts_Active" FromRole="Accounts" ToRole="Active" />
+          <NavigationProperty Name="Banks" Relationship="TreasuryDocsModel.FK_Accounts_Banks" FromRole="Accounts" ToRole="Banks" />
+          <NavigationProperty Name="Currencies" Relationship="TreasuryDocsModel.FK_Accounts_Currencies" FromRole="Accounts" ToRole="Currencies" />
+          <NavigationProperty Name="Divisions" Relationship="TreasuryDocsModel.FK_Accounts_Divisions" FromRole="Accounts" ToRole="Divisions" />
+          <NavigationProperty Name="Entities" Relationship="TreasuryDocsModel.FK_Accounts_Entities" FromRole="Accounts" ToRole="Entities" />
+          <NavigationProperty Name="Accounts_Signers_Entitlements" Relationship="TreasuryDocsModel.FK_Accounts_Signers_Entitlements_Accounts" FromRole="Accounts" ToRole="Accounts_Signers_Entitlements" />
+        </EntityType>
+        <EntityType Name="Accounts_Signers_Entitlements">
+          <Key>
+            <PropertyRef Name="account_signer_entitlementID_pk" />
+          </Key>
+          <Property Name="account_signer_entitlementID_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="accountID_fk" Type="Int32" Nullable="false" />
+          <Property Name="signerID_fk" Type="Int32" Nullable="false" />
+          <Property Name="entitlementID_fk" Type="Int32" Nullable="false" />
+          <Property Name="added" Type="DateTime" />
+          <Property Name="removed" Type="DateTime" />
+          <Property Name="user_add" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="user_del" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Accounts" Relationship="TreasuryDocsModel.FK_Accounts_Signers_Entitlements_Accounts" FromRole="Accounts_Signers_Entitlements" ToRole="Accounts" />
+          <NavigationProperty Name="Entitlements" Relationship="TreasuryDocsModel.FK_Accounts_Signers_Entitlements_Entitlements" FromRole="Accounts_Signers_Entitlements" ToRole="Entitlements" />
+          <NavigationProperty Name="Signers" Relationship="TreasuryDocsModel.FK_Accounts_Signers_Entitlements_Signers" FromRole="Accounts_Signers_Entitlements" ToRole="Signers" />
+        </EntityType>
+        <EntityType Name="AccountTypes">
+          <Key>
+            <PropertyRef Name="accounttypeID_pk" />
+          </Key>
+          <Property Name="accounttypeID_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Accounts" Relationship="TreasuryDocsModel.FK_Accounts_AccountTypes" FromRole="AccountTypes" ToRole="Accounts" />
+        </EntityType>
+        <EntityType Name="Active">
+          <Key>
+            <PropertyRef Name="activeBit" />
+          </Key>
+          <Property Name="activeBit" Type="Boolean" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Accounts" Relationship="TreasuryDocsModel.FK_Accounts_Active" FromRole="Active" ToRole="Accounts" />
+        </EntityType>
+        <EntityType Name="Audit_Accounts">
+          <Key>
+            <PropertyRef Name="audit_accountID_pk" />
+          </Key>
+          <Property Name="audit_accountID_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="accountID_pk" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="bankID_fk" Type="Int32" Nullable="false" />
+          <Property Name="typeID_fk" Type="Int32" Nullable="false" />
+          <Property Name="entityID_fk" Type="Int32" Nullable="false" />
+          <Property Name="currencyID_fk" Type="Int32" Nullable="false" />
+          <Property Name="opened_date" Type="DateTime" />
+          <Property Name="closed_date" Type="DateTime" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="acstatement" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="zba" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="action" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="audit_date" Type="DateTime" />
+          <Property Name="FieldName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="OldValue" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NewValue" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Audit_Accounts_Signers_Entitlements">
+          <Key>
+            <PropertyRef Name="audit_account_signer_entitlementID_pk" />
+          </Key>
+          <Property Name="audit_account_signer_entitlementID_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="accountID_fk" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="signerID_fk" Type="Int32" />
+          <Property Name="entitlementID_fk" Type="Int32" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="audit_date" Type="DateTime" />
+          <Property Name="action" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FieldName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="OldValue" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NewValue" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Balances">
+          <Key>
+            <PropertyRef Name="balanceID_pk" />
+          </Key>
+          <Property Name="balanceID_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="accountNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="balance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="year" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Banks">
+          <Key>
+            <PropertyRef Name="bankID_pk" />
+          </Key>
+          <Property Name="bankID_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="abanum" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="notes" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Accounts" Relationship="TreasuryDocsModel.FK_Accounts_Banks" FromRole="Banks" ToRole="Accounts" />
+        </EntityType>
+        <EntityType Name="Citizenships">
+          <Key>
+            <PropertyRef Name="citizenshipID_pk" />
+          </Key>
+          <Property Name="citizenshipID_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="citizenshipCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="citizenshipName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Currencies">
+          <Key>
+            <PropertyRef Name="currencyID_pk" />
+          </Key>
+          <Property Name="currencyID_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="currencyCode" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="currencyName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Accounts" Relationship="TreasuryDocsModel.FK_Accounts_Currencies" FromRole="Currencies" ToRole="Accounts" />
+        </EntityType>
+        <EntityType Name="Divisions">
+          <Key>
+            <PropertyRef Name="divisionID_pk" />
+          </Key>
+          <Property Name="divisionID_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="divisionCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="divisionName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Accounts" Relationship="TreasuryDocsModel.FK_Accounts_Divisions" FromRole="Divisions" ToRole="Accounts" />
+        </EntityType>
+        <EntityType Name="Entities">
+          <Key>
+            <PropertyRef Name="entityID_pk" />
+          </Key>
+          <Property Name="entityID_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="taxID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="notes" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="street1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="street2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="city" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="state" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="country" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="zip" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Accounts" Relationship="TreasuryDocsModel.FK_Accounts_Entities" FromRole="Entities" ToRole="Accounts" />
+        </EntityType>
+        <EntityType Name="Entitlements">
+          <Key>
+            <PropertyRef Name="entitlementID_pk" />
+          </Key>
+          <Property Name="entitlementID_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="entitlementGroup" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
+          <Property Name="description" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Accounts_Signers_Entitlements" Relationship="TreasuryDocsModel.FK_Accounts_Signers_Entitlements_Entitlements" FromRole="Entitlements" ToRole="Accounts_Signers_Entitlements" />
+        </EntityType>
+        <EntityType Name="Signers">
+          <Key>
+            <PropertyRef Name="signerID_pk" />
+          </Key>
+          <Property Name="signerID_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="middlename" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="title" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="citizenshipID_fk" Type="Int32" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Accounts_Signers_Entitlements" Relationship="TreasuryDocsModel.FK_Accounts_Signers_Entitlements_Signers" FromRole="Signers" ToRole="Accounts_Signers_Entitlements" />
+          <Property Type="DateTime" Name="deactivation_date" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="AccountsContactsView">
+          <Key>
+            <PropertyRef Name="contactID_pk" />
+            <PropertyRef Name="account_contact_pk" />
+            <PropertyRef Name="accountID_pk" />
+          </Key>
+          <Property Name="contactID_pk" Type="Int32" Nullable="false" />
+          <Property Name="account_contact_pk" Type="Int32" Nullable="false" />
+          <Property Name="accountID_pk" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="firstname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="title" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modifieddate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="AllAccountsSignersView">
+          <Key>
+            <PropertyRef Name="account_signer_entitlementID_pk" />
+            <PropertyRef Name="accountID_pk" />
+            <PropertyRef Name="accountNumber" />
+            <PropertyRef Name="signerID_pk" />
+          </Key>
+          <Property Name="account_signer_entitlementID_pk" Type="Int32" Nullable="false" />
+          <Property Name="accountID_pk" Type="Int32" Nullable="false" />
+          <Property Name="accountNumber" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="signerID_pk" Type="Int32" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="entitlementGroup" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
+          <Property Name="added" Type="DateTime" />
+          <Property Name="removed" Type="DateTime" />
+          <Property Name="user_add" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="user_del" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="AuditAccountsContactsView">
+          <Key>
+            <PropertyRef Name="audit_account_contactID_pk" />
+            <PropertyRef Name="accountID" />
+            <PropertyRef Name="bank" />
+          </Key>
+          <Property Name="audit_account_contactID_pk" Type="Int32" Nullable="false" />
+          <Property Name="accountID" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="accountname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="firstname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="middlename" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="bank" Type="String" Nullable="false" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="audit_date" Type="DateTime" />
+          <Property Name="action" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FieldName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="OldValue" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NewValue" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="AuditAccountsSignersEntitlementsView">
+          <Key>
+            <PropertyRef Name="audit_account_signer_entitlementID_pk" />
+          </Key>
+          <Property Name="audit_account_signer_entitlementID_pk" Type="Int32" Nullable="false" />
+          <Property Name="accountID" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="accountname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="firstname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="middlename" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="entitlement" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="audit_date" Type="DateTime" />
+          <Property Name="action" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FieldName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="OldValue" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NewValue" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="AuditAccountsView">
+          <Key>
+            <PropertyRef Name="audit_accountID_pk" />
+            <PropertyRef Name="accountnum" />
+            <PropertyRef Name="bank" />
+          </Key>
+          <Property Name="audit_accountID_pk" Type="Int32" Nullable="false" />
+          <Property Name="accountnum" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="bank" Type="String" Nullable="false" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="accounttype" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="entity" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="currency" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="opened_date" Type="DateTime" />
+          <Property Name="closed_date" Type="DateTime" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="acstatement" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="zba" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="action" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="audit_date" Type="DateTime" />
+          <Property Name="FieldName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="OldValue" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NewValue" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="currView">
+          <Key>
+            <PropertyRef Name="accountID_pk" />
+          </Key>
+          <Property Name="accountID_pk" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="currencyCode" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="currencyName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SignerNameView">
+          <Key>
+            <PropertyRef Name="signerID" />
+          </Key>
+          <Property Name="signerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="101" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SignersView">
+          <Key>
+            <PropertyRef Name="signerID_pk" />
+          </Key>
+          <Property Name="signerID_pk" Type="Int32" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="middlename" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="title" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="citizenshipName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="modifiedby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="createdby" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Accounts_AccountTypes">
+          <End Role="AccountTypes" Type="TreasuryDocsModel.AccountTypes" Multiplicity="1" />
+          <End Role="Accounts" Type="TreasuryDocsModel.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountTypes">
+              <PropertyRef Name="accounttypeID_pk" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="typeID_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Active">
+          <End Role="Active" Type="TreasuryDocsModel.Active" Multiplicity="1" />
+          <End Role="Accounts" Type="TreasuryDocsModel.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Active">
+              <PropertyRef Name="activeBit" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="active" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Banks">
+          <End Role="Banks" Type="TreasuryDocsModel.Banks" Multiplicity="1" />
+          <End Role="Accounts" Type="TreasuryDocsModel.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banks">
+              <PropertyRef Name="bankID_pk" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="bankID_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Currencies">
+          <End Role="Currencies" Type="TreasuryDocsModel.Currencies" Multiplicity="1" />
+          <End Role="Accounts" Type="TreasuryDocsModel.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currencies">
+              <PropertyRef Name="currencyID_pk" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="currencyID_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Divisions">
+          <End Role="Divisions" Type="TreasuryDocsModel.Divisions" Multiplicity="1" />
+          <End Role="Accounts" Type="TreasuryDocsModel.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Divisions">
+              <PropertyRef Name="divisionID_pk" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="divisionsID_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Entities">
+          <End Role="Entities" Type="TreasuryDocsModel.Entities" Multiplicity="1" />
+          <End Role="Accounts" Type="TreasuryDocsModel.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entities">
+              <PropertyRef Name="entityID_pk" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="entityID_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Signers_Entitlements_Accounts">
+          <End Role="Accounts" Type="TreasuryDocsModel.Accounts" Multiplicity="1" />
+          <End Role="Accounts_Signers_Entitlements" Type="TreasuryDocsModel.Accounts_Signers_Entitlements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="accountID_pk" />
+            </Principal>
+            <Dependent Role="Accounts_Signers_Entitlements">
+              <PropertyRef Name="accountID_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Signers_Entitlements_Entitlements">
+          <End Role="Entitlements" Type="TreasuryDocsModel.Entitlements" Multiplicity="1" />
+          <End Role="Accounts_Signers_Entitlements" Type="TreasuryDocsModel.Accounts_Signers_Entitlements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entitlements">
+              <PropertyRef Name="entitlementID_pk" />
+            </Principal>
+            <Dependent Role="Accounts_Signers_Entitlements">
+              <PropertyRef Name="entitlementID_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Signers_Entitlements_Signers">
+          <End Role="Signers" Type="TreasuryDocsModel.Signers" Multiplicity="1" />
+          <End Role="Accounts_Signers_Entitlements" Type="TreasuryDocsModel.Accounts_Signers_Entitlements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Signers">
+              <PropertyRef Name="signerID_pk" />
+            </Principal>
+            <Dependent Role="Accounts_Signers_Entitlements">
+              <PropertyRef Name="signerID_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="contactID_pk" />
+          </Key>
+          <Property Type="Int32" Name="contactID_pk" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="bankID_fk" Nullable="false" />
+          <Property Type="String" Name="firstname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="lastname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="middlename" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="title" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="phone" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="fax" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="street1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="street2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="city" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="state" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="country" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="zip" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="active" />
+          <Property Type="Boolean" Name="isPrimary" />
+          <Property Type="DateTime" Name="modifieddate" />
+          <Property Type="String" Name="modifiedby" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="createddate" />
+          <Property Type="String" Name="createdby" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BADSInfo">
+          <Key>
+            <PropertyRef Name="accountNumber" />
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Type="String" Name="accountNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="opened_date" />
+          <Property Type="DateTime" Name="closed_date" />
+          <Property Type="DateTime" Name="modifieddate" />
+          <Property Type="String" Name="zba" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="firstname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="lastname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="phone" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="fax" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="street1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="street2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="city" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="zip" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="state" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="notes" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="acstatement" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="currencyCode" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="accountName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="description" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="entityName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="taxID" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AccountSignerEntitlementsView">
+          <Key>
+            <PropertyRef Name="accountNumber" />
+            <PropertyRef Name="entitlementID_fk" />
+          </Key>
+          <Property Type="String" Name="description" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="accountNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="firstname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="lastname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="middlename" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="entitlementID_fk" Nullable="false" />
+          <Property Type="String" Name="citizenshipCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="entitlementGroup" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="ContactsView">
+          <Property Type="Int32" Name="contactID_pk" Nullable="false" />
+          <Property Type="Int32" Name="bankID_fk" Nullable="false" />
+          <Property Type="String" Name="firstname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="lastname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="middlename" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="title" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="phone" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="fax" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="street1" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="street2" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="city" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="state" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="country" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="zip" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="DeletedSignersView">
+          <Key>
+            <PropertyRef Name="account_signer_entitlementID_pk" />
+            <PropertyRef Name="accountID_pk" />
+            <PropertyRef Name="accountNumber" />
+            <PropertyRef Name="signerID_pk" />
+            <PropertyRef Name="bankName" />
+            <PropertyRef Name="bankID_pk" />
+          </Key>
+          <Property Type="Int32" Name="account_signer_entitlementID_pk" Nullable="false" />
+          <Property Type="Int32" Name="accountID_pk" Nullable="false" />
+          <Property Type="String" Name="accountNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="signerID_pk" Nullable="false" />
+          <Property Type="String" Name="name" MaxLength="154" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="entitlementGroup" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="added" />
+          <Property Type="DateTime" Name="removed" />
+          <Property Type="String" Name="user_add" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="user_del" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="modifieddate" />
+          <Property Type="String" Name="modifiedby" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="createddate" />
+          <Property Type="String" Name="createdby" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="entityName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="bankName" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="citizenshipID_fk" />
+          <Property Type="Int32" Name="bankID_pk" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AccountsView">
+          <Key>
+            <PropertyRef Name="accountID" />
+            <PropertyRef Name="accountNumber" />
+            <PropertyRef Name="bankID_pk" />
+            <PropertyRef Name="bank" />
+            <PropertyRef Name="active" />
+          </Key>
+          <Property Type="Int32" Name="accountID" Nullable="false" />
+          <Property Type="String" Name="accountNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="divisionCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="bankID_pk" Nullable="false" />
+          <Property Type="String" Name="bank" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="accountType" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="entity" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="taxID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="currencyCode" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="opened_date" />
+          <Property Type="DateTime" Name="closed_date" />
+          <Property Type="Boolean" Name="active" Nullable="false" />
+          <Property Type="DateTime" Name="modifieddate" />
+          <Property Type="String" Name="modifiedby" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="createddate" />
+          <Property Type="String" Name="createdby" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="acstatement" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="zba" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="notes" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AccountsSignersView">
+          <Key>
+            <PropertyRef Name="account_signer_entitlementID_pk" />
+            <PropertyRef Name="accountID_pk" />
+            <PropertyRef Name="accountNumber" />
+            <PropertyRef Name="signerID_pk" />
+          </Key>
+          <Property Type="Int32" Name="account_signer_entitlementID_pk" Nullable="false" />
+          <Property Type="Int32" Name="accountID_pk" Nullable="false" />
+          <Property Type="String" Name="accountNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="signerID_pk" Nullable="false" />
+          <Property Type="String" Name="firstname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="lastname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="entitlementGroup" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="added" />
+          <Property Type="DateTime" Name="removed" />
+          <Property Type="String" Name="user_add" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="user_del" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="modifieddate" />
+          <Property Type="String" Name="modifiedby" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="createddate" />
+          <Property Type="String" Name="createdby" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="name" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FBARView">
+          <Key>
+            <PropertyRef Name="account_signer_entitlementID_pk" />
+            <PropertyRef Name="AccountID" />
+            <PropertyRef Name="AccountNum" />
+            <PropertyRef Name="AccountBank" />
+            <PropertyRef Name="AccountActive" />
+            <PropertyRef Name="SignerID" />
+            <PropertyRef Name="SignerRemoved" />
+            <PropertyRef Name="bankID" />
+          </Key>
+          <Property Type="Int32" Name="account_signer_entitlementID_pk" Nullable="false" />
+          <Property Type="Int32" Name="AccountID" Nullable="false" />
+          <Property Type="String" Name="AccountNum" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccountDiv" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccountName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccountBank" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BankAddress" MaxLength="252" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccountType" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccountEntity" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TaxID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="State" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Zip" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccountCurrency" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="AccountOpened" />
+          <Property Type="DateTime" Name="AccountClosed" />
+          <Property Type="Int32" Name="AccountClosedYear" />
+          <Property Type="Boolean" Name="AccountActive" Nullable="false" />
+          <Property Type="Int32" Name="SignerID" Nullable="false" />
+          <Property Type="String" Name="SignerFirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SignerLastName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SignerMiddleName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SignerTitle" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SignerCitizenship" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Entitlement" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Type="Boolean" Name="SignerActive" />
+          <Property Type="DateTime" Name="SignerAdded" />
+          <Property Type="DateTime" Name="SignerRemoved" Nullable="false" />
+          <Property Type="String" Name="SignerUserAdd" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SignerUserDel" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="BalanceID" />
+          <Property Type="Decimal" Name="BalanceMaxUSD" Precision="19" Scale="4" />
+          <Property Type="String" Name="BalanceYear" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="rownum1" />
+          <Property Type="Int32" Name="bankID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FBARSummaryView">
+          <Key>
+            <PropertyRef Name="account_signer_entitlementID_pk" />
+            <PropertyRef Name="AccountID" />
+            <PropertyRef Name="AccountNum" />
+            <PropertyRef Name="AccountBank" />
+            <PropertyRef Name="AccountActive" />
+            <PropertyRef Name="SignerID" />
+            <PropertyRef Name="SignerRemoved" />
+            <PropertyRef Name="bankID" />
+          </Key>
+          <Property Type="Int32" Name="account_signer_entitlementID_pk" Nullable="false" />
+          <Property Type="Int32" Name="AccountID" Nullable="false" />
+          <Property Type="String" Name="AccountNum" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccountDiv" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccountName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccountBank" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BankAddress" MaxLength="252" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccountType" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccountEntity" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TaxID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="State" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Zip" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccountCurrency" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="AccountOpened" />
+          <Property Type="DateTime" Name="AccountClosed" />
+          <Property Type="Int32" Name="AccountClosedYear" />
+          <Property Type="Boolean" Name="AccountActive" Nullable="false" />
+          <Property Type="Int32" Name="SignerID" Nullable="false" />
+          <Property Type="String" Name="SignerFirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SignerLastName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SignerMiddleName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SignerTitle" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SignerCitizenship" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Entitlement" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Type="Boolean" Name="SignerActive" />
+          <Property Type="DateTime" Name="SignerAdded" />
+          <Property Type="DateTime" Name="SignerRemoved" Nullable="false" />
+          <Property Type="String" Name="SignerUserAdd" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SignerUserDel" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="BalanceID" />
+          <Property Type="Decimal" Name="BalanceMaxUSD" Precision="19" Scale="4" />
+          <Property Type="String" Name="BalanceYear" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="rownum1" />
+          <Property Type="Int32" Name="bankID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rptEPMonthlyAccountActivity">
+          <Key>
+            <PropertyRef Name="AccountNum" />
+            <PropertyRef Name="BankName" />
+          </Key>
+          <Property Type="String" Name="AccountNum" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CurrencyCode" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccountName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EntityName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BankName" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ABA" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="OpenedDate" />
+          <Property Type="DateTime" Name="ClosedDate" />
+          <Property Type="String" Name="Status" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="rptActiveSigners">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="String" Name="AccountNum" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccountDiv" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccountName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="AccountOpened" />
+          <Property Type="String" Name="AccountBank" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SignerFirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SignerLastName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SignerCitizenship" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Entitlement" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="Signer_Added" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TreasuryDocsModelStoreContainer" CdmEntityContainer="TreasuryDocsEntities4">
+          <EntitySetMapping Name="Accounts"><EntityTypeMapping TypeName="TreasuryDocsModel.Accounts"><MappingFragment StoreEntitySet="Accounts">
+            <ScalarProperty Name="accountID_pk" ColumnName="accountID_pk" />
+            <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+            <ScalarProperty Name="bankID_fk" ColumnName="bankID_fk" />
+            <ScalarProperty Name="typeID_fk" ColumnName="typeID_fk" />
+            <ScalarProperty Name="entityID_fk" ColumnName="entityID_fk" />
+            <ScalarProperty Name="currencyID_fk" ColumnName="currencyID_fk" />
+            <ScalarProperty Name="divisionsID_fk" ColumnName="divisionsID_fk" />
+            <ScalarProperty Name="active" ColumnName="active" />
+            <ScalarProperty Name="opened_date" ColumnName="opened_date" />
+            <ScalarProperty Name="closed_date" ColumnName="closed_date" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="acstatement" ColumnName="acstatement" />
+            <ScalarProperty Name="zba" ColumnName="zba" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Accounts_Signers_Entitlements"><EntityTypeMapping TypeName="TreasuryDocsModel.Accounts_Signers_Entitlements"><MappingFragment StoreEntitySet="Accounts_Signers_Entitlements">
+            <ScalarProperty Name="account_signer_entitlementID_pk" ColumnName="account_signer_entitlementID_pk" />
+            <ScalarProperty Name="accountID_fk" ColumnName="accountID_fk" />
+            <ScalarProperty Name="signerID_fk" ColumnName="signerID_fk" />
+            <ScalarProperty Name="entitlementID_fk" ColumnName="entitlementID_fk" />
+            <ScalarProperty Name="added" ColumnName="added" />
+            <ScalarProperty Name="removed" ColumnName="removed" />
+            <ScalarProperty Name="user_add" ColumnName="user_add" />
+            <ScalarProperty Name="user_del" ColumnName="user_del" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="AccountTypes"><EntityTypeMapping TypeName="TreasuryDocsModel.AccountTypes"><MappingFragment StoreEntitySet="AccountTypes">
+            <ScalarProperty Name="accounttypeID_pk" ColumnName="accounttypeID_pk" />
+            <ScalarProperty Name="description" ColumnName="description" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Active"><EntityTypeMapping TypeName="TreasuryDocsModel.Active"><MappingFragment StoreEntitySet="Active">
+            <ScalarProperty Name="activeBit" ColumnName="activeBit" />
+            <ScalarProperty Name="description" ColumnName="description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Audit_Accounts"><EntityTypeMapping TypeName="TreasuryDocsModel.Audit_Accounts"><MappingFragment StoreEntitySet="Audit_Accounts">
+            <ScalarProperty Name="audit_accountID_pk" ColumnName="audit_accountID_pk" />
+            <ScalarProperty Name="accountID_pk" ColumnName="accountID_pk" />
+            <ScalarProperty Name="bankID_fk" ColumnName="bankID_fk" />
+            <ScalarProperty Name="typeID_fk" ColumnName="typeID_fk" />
+            <ScalarProperty Name="entityID_fk" ColumnName="entityID_fk" />
+            <ScalarProperty Name="currencyID_fk" ColumnName="currencyID_fk" />
+            <ScalarProperty Name="opened_date" ColumnName="opened_date" />
+            <ScalarProperty Name="closed_date" ColumnName="closed_date" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="active" ColumnName="active" />
+            <ScalarProperty Name="acstatement" ColumnName="acstatement" />
+            <ScalarProperty Name="zba" ColumnName="zba" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+            <ScalarProperty Name="action" ColumnName="action" />
+            <ScalarProperty Name="audit_date" ColumnName="audit_date" />
+            <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+            <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+            <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Audit_Accounts_Signers_Entitlements"><EntityTypeMapping TypeName="TreasuryDocsModel.Audit_Accounts_Signers_Entitlements"><MappingFragment StoreEntitySet="Audit_Accounts_Signers_Entitlements">
+            <ScalarProperty Name="audit_account_signer_entitlementID_pk" ColumnName="audit_account_signer_entitlementID_pk" />
+            <ScalarProperty Name="accountID_fk" ColumnName="accountID_fk" />
+            <ScalarProperty Name="signerID_fk" ColumnName="signerID_fk" />
+            <ScalarProperty Name="entitlementID_fk" ColumnName="entitlementID_fk" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+            <ScalarProperty Name="audit_date" ColumnName="audit_date" />
+            <ScalarProperty Name="action" ColumnName="action" />
+            <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+            <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+            <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Balances"><EntityTypeMapping TypeName="TreasuryDocsModel.Balances"><MappingFragment StoreEntitySet="Balances">
+            <ScalarProperty Name="balanceID_pk" ColumnName="balanceID_pk" />
+            <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+            <ScalarProperty Name="balance" ColumnName="balance" />
+            <ScalarProperty Name="year" ColumnName="year" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Banks"><EntityTypeMapping TypeName="TreasuryDocsModel.Banks"><MappingFragment StoreEntitySet="Banks">
+            <ScalarProperty Name="bankID_pk" ColumnName="bankID_pk" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="abanum" ColumnName="abanum" />
+            <ScalarProperty Name="notes" ColumnName="notes" />
+            <ScalarProperty Name="active" ColumnName="active" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Citizenships"><EntityTypeMapping TypeName="TreasuryDocsModel.Citizenships"><MappingFragment StoreEntitySet="Citizenships">
+            <ScalarProperty Name="citizenshipID_pk" ColumnName="citizenshipID_pk" />
+            <ScalarProperty Name="citizenshipCode" ColumnName="citizenshipCode" />
+            <ScalarProperty Name="citizenshipName" ColumnName="citizenshipName" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Currencies"><EntityTypeMapping TypeName="TreasuryDocsModel.Currencies"><MappingFragment StoreEntitySet="Currencies">
+            <ScalarProperty Name="currencyID_pk" ColumnName="currencyID_pk" />
+            <ScalarProperty Name="currencyCode" ColumnName="currencyCode" />
+            <ScalarProperty Name="currencyName" ColumnName="currencyName" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Divisions"><EntityTypeMapping TypeName="TreasuryDocsModel.Divisions"><MappingFragment StoreEntitySet="Divisions">
+            <ScalarProperty Name="divisionID_pk" ColumnName="divisionID_pk" />
+            <ScalarProperty Name="divisionCode" ColumnName="divisionCode" />
+            <ScalarProperty Name="divisionName" ColumnName="divisionName" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Entities"><EntityTypeMapping TypeName="TreasuryDocsModel.Entities"><MappingFragment StoreEntitySet="Entities">
+            <ScalarProperty Name="entityID_pk" ColumnName="entityID_pk" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="taxID" ColumnName="taxID" />
+            <ScalarProperty Name="notes" ColumnName="notes" />
+            <ScalarProperty Name="active" ColumnName="active" />
+            <ScalarProperty Name="street1" ColumnName="street1" />
+            <ScalarProperty Name="street2" ColumnName="street2" />
+            <ScalarProperty Name="city" ColumnName="city" />
+            <ScalarProperty Name="state" ColumnName="state" />
+            <ScalarProperty Name="country" ColumnName="country" />
+            <ScalarProperty Name="zip" ColumnName="zip" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Entitlements"><EntityTypeMapping TypeName="TreasuryDocsModel.Entitlements"><MappingFragment StoreEntitySet="Entitlements">
+            <ScalarProperty Name="entitlementID_pk" ColumnName="entitlementID_pk" />
+            <ScalarProperty Name="entitlementGroup" ColumnName="entitlementGroup" />
+            <ScalarProperty Name="description" ColumnName="description" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Signers"><EntityTypeMapping TypeName="TreasuryDocsModel.Signers"><MappingFragment StoreEntitySet="Signers">
+            <ScalarProperty Name="deactivation_date" ColumnName="deactivation_date" />
+                <ScalarProperty Name="signerID_pk" ColumnName="signerID_pk" />
+            <ScalarProperty Name="firstname" ColumnName="firstname" />
+            <ScalarProperty Name="lastname" ColumnName="lastname" />
+            <ScalarProperty Name="middlename" ColumnName="middlename" />
+            <ScalarProperty Name="title" ColumnName="title" />
+            <ScalarProperty Name="citizenshipID_fk" ColumnName="citizenshipID_fk" />
+            <ScalarProperty Name="active" ColumnName="active" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="TreasuryDocsModel.sysdiagrams"><MappingFragment StoreEntitySet="sysdiagrams">
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+            <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+            <ScalarProperty Name="version" ColumnName="version" />
+            <ScalarProperty Name="definition" ColumnName="definition" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="AccountsContactsView"><EntityTypeMapping TypeName="TreasuryDocsModel.AccountsContactsView"><MappingFragment StoreEntitySet="AccountsContactsView">
+            <ScalarProperty Name="contactID_pk" ColumnName="contactID_pk" />
+            <ScalarProperty Name="account_contact_pk" ColumnName="account_contact_pk" />
+            <ScalarProperty Name="accountID_pk" ColumnName="accountID_pk" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="firstname" ColumnName="firstname" />
+            <ScalarProperty Name="lastname" ColumnName="lastname" />
+            <ScalarProperty Name="title" ColumnName="title" />
+            <ScalarProperty Name="email" ColumnName="email" />
+            <ScalarProperty Name="phone" ColumnName="phone" />
+            <ScalarProperty Name="active" ColumnName="active" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="AllAccountsSignersView"><EntityTypeMapping TypeName="TreasuryDocsModel.AllAccountsSignersView"><MappingFragment StoreEntitySet="AllAccountsSignersView">
+            <ScalarProperty Name="account_signer_entitlementID_pk" ColumnName="account_signer_entitlementID_pk" />
+            <ScalarProperty Name="accountID_pk" ColumnName="accountID_pk" />
+            <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+            <ScalarProperty Name="signerID_pk" ColumnName="signerID_pk" />
+            <ScalarProperty Name="firstname" ColumnName="firstname" />
+            <ScalarProperty Name="lastname" ColumnName="lastname" />
+            <ScalarProperty Name="entitlementGroup" ColumnName="entitlementGroup" />
+            <ScalarProperty Name="added" ColumnName="added" />
+            <ScalarProperty Name="removed" ColumnName="removed" />
+            <ScalarProperty Name="user_add" ColumnName="user_add" />
+            <ScalarProperty Name="user_del" ColumnName="user_del" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="AuditAccountsContactsView"><EntityTypeMapping TypeName="TreasuryDocsModel.AuditAccountsContactsView"><MappingFragment StoreEntitySet="AuditAccountsContactsView">
+            <ScalarProperty Name="audit_account_contactID_pk" ColumnName="audit_account_contactID_pk" />
+            <ScalarProperty Name="accountID" ColumnName="accountID" />
+            <ScalarProperty Name="accountname" ColumnName="accountname" />
+            <ScalarProperty Name="firstname" ColumnName="firstname" />
+            <ScalarProperty Name="lastname" ColumnName="lastname" />
+            <ScalarProperty Name="middlename" ColumnName="middlename" />
+            <ScalarProperty Name="email" ColumnName="email" />
+            <ScalarProperty Name="active" ColumnName="active" />
+            <ScalarProperty Name="bank" ColumnName="bank" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+            <ScalarProperty Name="audit_date" ColumnName="audit_date" />
+            <ScalarProperty Name="action" ColumnName="action" />
+            <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+            <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+            <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="AuditAccountsSignersEntitlementsView"><EntityTypeMapping TypeName="TreasuryDocsModel.AuditAccountsSignersEntitlementsView"><MappingFragment StoreEntitySet="AuditAccountsSignersEntitlementsView">
+            <ScalarProperty Name="audit_account_signer_entitlementID_pk" ColumnName="audit_account_signer_entitlementID_pk" />
+            <ScalarProperty Name="accountID" ColumnName="accountID" />
+            <ScalarProperty Name="accountname" ColumnName="accountname" />
+            <ScalarProperty Name="firstname" ColumnName="firstname" />
+            <ScalarProperty Name="lastname" ColumnName="lastname" />
+            <ScalarProperty Name="middlename" ColumnName="middlename" />
+            <ScalarProperty Name="active" ColumnName="active" />
+            <ScalarProperty Name="entitlement" ColumnName="entitlement" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+            <ScalarProperty Name="audit_date" ColumnName="audit_date" />
+            <ScalarProperty Name="action" ColumnName="action" />
+            <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+            <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+            <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="AuditAccountsView"><EntityTypeMapping TypeName="TreasuryDocsModel.AuditAccountsView"><MappingFragment StoreEntitySet="AuditAccountsView">
+            <ScalarProperty Name="audit_accountID_pk" ColumnName="audit_accountID_pk" />
+            <ScalarProperty Name="accountnum" ColumnName="accountnum" />
+            <ScalarProperty Name="bank" ColumnName="bank" />
+            <ScalarProperty Name="accounttype" ColumnName="accounttype" />
+            <ScalarProperty Name="entity" ColumnName="entity" />
+            <ScalarProperty Name="currency" ColumnName="currency" />
+            <ScalarProperty Name="opened_date" ColumnName="opened_date" />
+            <ScalarProperty Name="closed_date" ColumnName="closed_date" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="active" ColumnName="active" />
+            <ScalarProperty Name="acstatement" ColumnName="acstatement" />
+            <ScalarProperty Name="zba" ColumnName="zba" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+            <ScalarProperty Name="action" ColumnName="action" />
+            <ScalarProperty Name="audit_date" ColumnName="audit_date" />
+            <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+            <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+            <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="currView"><EntityTypeMapping TypeName="TreasuryDocsModel.currView"><MappingFragment StoreEntitySet="currView">
+            <ScalarProperty Name="accountID_pk" ColumnName="accountID_pk" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="currencyCode" ColumnName="currencyCode" />
+            <ScalarProperty Name="currencyName" ColumnName="currencyName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SignerNameView"><EntityTypeMapping TypeName="TreasuryDocsModel.SignerNameView"><MappingFragment StoreEntitySet="SignerNameView">
+            <ScalarProperty Name="signerID" ColumnName="signerID" />
+            <ScalarProperty Name="name" ColumnName="name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SignersView"><EntityTypeMapping TypeName="TreasuryDocsModel.SignersView"><MappingFragment StoreEntitySet="SignersView">
+            <ScalarProperty Name="signerID_pk" ColumnName="signerID_pk" />
+            <ScalarProperty Name="firstname" ColumnName="firstname" />
+            <ScalarProperty Name="lastname" ColumnName="lastname" />
+            <ScalarProperty Name="middlename" ColumnName="middlename" />
+            <ScalarProperty Name="title" ColumnName="title" />
+            <ScalarProperty Name="citizenshipName" ColumnName="citizenshipName" />
+            <ScalarProperty Name="active" ColumnName="active" />
+            <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+            <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+            <ScalarProperty Name="createddate" ColumnName="createddate" />
+            <ScalarProperty Name="createdby" ColumnName="createdby" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="TreasuryDocsModel.Contacts">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createddate" ColumnName="createddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="isPrimary" ColumnName="isPrimary" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="street2" ColumnName="street2" />
+                <ScalarProperty Name="street1" ColumnName="street1" />
+                <ScalarProperty Name="fax" ColumnName="fax" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="middlename" ColumnName="middlename" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="bankID_fk" ColumnName="bankID_fk" />
+                <ScalarProperty Name="contactID_pk" ColumnName="contactID_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BADSInfo">
+            <EntityTypeMapping TypeName="TreasuryDocsModel.BADSInfo">
+              <MappingFragment StoreEntitySet="BADSInfo">
+                <ScalarProperty Name="taxID" ColumnName="taxID" />
+                <ScalarProperty Name="entityName" ColumnName="entityName" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="accountName" ColumnName="accountName" />
+                <ScalarProperty Name="currencyCode" ColumnName="currencyCode" />
+                <ScalarProperty Name="acstatement" ColumnName="acstatement" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="street2" ColumnName="street2" />
+                <ScalarProperty Name="street1" ColumnName="street1" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="fax" ColumnName="fax" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="zba" ColumnName="zba" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="closed_date" ColumnName="closed_date" />
+                <ScalarProperty Name="opened_date" ColumnName="opened_date" />
+                <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountSignerEntitlementsView">
+            <EntityTypeMapping TypeName="TreasuryDocsModel.AccountSignerEntitlementsView">
+              <MappingFragment StoreEntitySet="AccountSignerEntitlementsView">
+                <ScalarProperty Name="entitlementGroup" ColumnName="entitlementGroup" />
+                <ScalarProperty Name="citizenshipCode" ColumnName="citizenshipCode" />
+                <ScalarProperty Name="entitlementID_fk" ColumnName="entitlementID_fk" />
+                <ScalarProperty Name="middlename" ColumnName="middlename" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetEntitlementsByAccountNumber" FunctionName="TreasuryDocsModel.Store.GetEntitlementsByAccountNumber" />
+          <FunctionImportMapping FunctionImportName="GetPrimaryContactsByBankId" FunctionName="TreasuryDocsModel.Store.GetPrimaryContactsByBankID" />
+          <FunctionImportMapping FunctionImportName="RemoveAccountSignerEntitlement" FunctionName="TreasuryDocsModel.Store.RemoveAccountSignerEntitlement" />
+          <EntitySetMapping Name="DeletedSignersView">
+            <EntityTypeMapping TypeName="TreasuryDocsModel.DeletedSignersView">
+              <MappingFragment StoreEntitySet="DeletedSignersView">
+                <ScalarProperty Name="bankID_pk" ColumnName="bankID_pk" />
+                <ScalarProperty Name="citizenshipID_fk" ColumnName="citizenshipID_fk" />
+                <ScalarProperty Name="bankName" ColumnName="bankName" />
+                <ScalarProperty Name="entityName" ColumnName="entityName" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createddate" ColumnName="createddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="user_del" ColumnName="user_del" />
+                <ScalarProperty Name="user_add" ColumnName="user_add" />
+                <ScalarProperty Name="removed" ColumnName="removed" />
+                <ScalarProperty Name="added" ColumnName="added" />
+                <ScalarProperty Name="entitlementGroup" ColumnName="entitlementGroup" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="signerID_pk" ColumnName="signerID_pk" />
+                <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+                <ScalarProperty Name="accountID_pk" ColumnName="accountID_pk" />
+                <ScalarProperty Name="account_signer_entitlementID_pk" ColumnName="account_signer_entitlementID_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountsView">
+            <EntityTypeMapping TypeName="TreasuryDocsModel.AccountsView">
+              <MappingFragment StoreEntitySet="AccountsView">
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="zba" ColumnName="zba" />
+                <ScalarProperty Name="acstatement" ColumnName="acstatement" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createddate" ColumnName="createddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="closed_date" ColumnName="closed_date" />
+                <ScalarProperty Name="opened_date" ColumnName="opened_date" />
+                <ScalarProperty Name="currencyCode" ColumnName="currencyCode" />
+                <ScalarProperty Name="taxID" ColumnName="taxID" />
+                <ScalarProperty Name="entity" ColumnName="entity" />
+                <ScalarProperty Name="accountType" ColumnName="accountType" />
+                <ScalarProperty Name="bank" ColumnName="bank" />
+                <ScalarProperty Name="bankID_pk" ColumnName="bankID_pk" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="divisionCode" ColumnName="divisionCode" />
+                <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+                <ScalarProperty Name="accountID" ColumnName="accountID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountsSignersView">
+            <EntityTypeMapping TypeName="TreasuryDocsModel.AccountsSignersView">
+              <MappingFragment StoreEntitySet="AccountsSignersView">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createddate" ColumnName="createddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="user_del" ColumnName="user_del" />
+                <ScalarProperty Name="user_add" ColumnName="user_add" />
+                <ScalarProperty Name="removed" ColumnName="removed" />
+                <ScalarProperty Name="added" ColumnName="added" />
+                <ScalarProperty Name="entitlementGroup" ColumnName="entitlementGroup" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="signerID_pk" ColumnName="signerID_pk" />
+                <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+                <ScalarProperty Name="accountID_pk" ColumnName="accountID_pk" />
+                <ScalarProperty Name="account_signer_entitlementID_pk" ColumnName="account_signer_entitlementID_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FBARView">
+            <EntityTypeMapping TypeName="TreasuryDocsModel.FBARView">
+              <MappingFragment StoreEntitySet="FBARView">
+                <ScalarProperty Name="bankID" ColumnName="bankID" />
+                <ScalarProperty Name="rownum1" ColumnName="rownum1" />
+                <ScalarProperty Name="BalanceYear" ColumnName="BalanceYear" />
+                <ScalarProperty Name="BalanceMaxUSD" ColumnName="BalanceMaxUSD" />
+                <ScalarProperty Name="BalanceID" ColumnName="BalanceID" />
+                <ScalarProperty Name="SignerUserDel" ColumnName="SignerUserDel" />
+                <ScalarProperty Name="SignerUserAdd" ColumnName="SignerUserAdd" />
+                <ScalarProperty Name="SignerRemoved" ColumnName="SignerRemoved" />
+                <ScalarProperty Name="SignerAdded" ColumnName="SignerAdded" />
+                <ScalarProperty Name="SignerActive" ColumnName="SignerActive" />
+                <ScalarProperty Name="Entitlement" ColumnName="Entitlement" />
+                <ScalarProperty Name="SignerCitizenship" ColumnName="SignerCitizenship" />
+                <ScalarProperty Name="SignerTitle" ColumnName="SignerTitle" />
+                <ScalarProperty Name="SignerMiddleName" ColumnName="SignerMiddleName" />
+                <ScalarProperty Name="SignerLastName" ColumnName="SignerLastName" />
+                <ScalarProperty Name="SignerFirstName" ColumnName="SignerFirstName" />
+                <ScalarProperty Name="SignerID" ColumnName="SignerID" />
+                <ScalarProperty Name="AccountActive" ColumnName="AccountActive" />
+                <ScalarProperty Name="AccountClosedYear" ColumnName="AccountClosedYear" />
+                <ScalarProperty Name="AccountClosed" ColumnName="AccountClosed" />
+                <ScalarProperty Name="AccountOpened" ColumnName="AccountOpened" />
+                <ScalarProperty Name="AccountCurrency" ColumnName="AccountCurrency" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="AccountEntity" ColumnName="AccountEntity" />
+                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+                <ScalarProperty Name="BankAddress" ColumnName="BankAddress" />
+                <ScalarProperty Name="AccountBank" ColumnName="AccountBank" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AccountDiv" ColumnName="AccountDiv" />
+                <ScalarProperty Name="AccountNum" ColumnName="AccountNum" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="account_signer_entitlementID_pk" ColumnName="account_signer_entitlementID_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FBARSummaryView">
+            <EntityTypeMapping TypeName="TreasuryDocsModel.FBARSummaryView">
+              <MappingFragment StoreEntitySet="FBARSummaryView">
+                <ScalarProperty Name="bankID" ColumnName="bankID" />
+                <ScalarProperty Name="rownum1" ColumnName="rownum1" />
+                <ScalarProperty Name="BalanceYear" ColumnName="BalanceYear" />
+                <ScalarProperty Name="BalanceMaxUSD" ColumnName="BalanceMaxUSD" />
+                <ScalarProperty Name="BalanceID" ColumnName="BalanceID" />
+                <ScalarProperty Name="SignerUserDel" ColumnName="SignerUserDel" />
+                <ScalarProperty Name="SignerUserAdd" ColumnName="SignerUserAdd" />
+                <ScalarProperty Name="SignerRemoved" ColumnName="SignerRemoved" />
+                <ScalarProperty Name="SignerAdded" ColumnName="SignerAdded" />
+                <ScalarProperty Name="SignerActive" ColumnName="SignerActive" />
+                <ScalarProperty Name="Entitlement" ColumnName="Entitlement" />
+                <ScalarProperty Name="SignerCitizenship" ColumnName="SignerCitizenship" />
+                <ScalarProperty Name="SignerTitle" ColumnName="SignerTitle" />
+                <ScalarProperty Name="SignerMiddleName" ColumnName="SignerMiddleName" />
+                <ScalarProperty Name="SignerLastName" ColumnName="SignerLastName" />
+                <ScalarProperty Name="SignerFirstName" ColumnName="SignerFirstName" />
+                <ScalarProperty Name="SignerID" ColumnName="SignerID" />
+                <ScalarProperty Name="AccountActive" ColumnName="AccountActive" />
+                <ScalarProperty Name="AccountClosedYear" ColumnName="AccountClosedYear" />
+                <ScalarProperty Name="AccountClosed" ColumnName="AccountClosed" />
+                <ScalarProperty Name="AccountOpened" ColumnName="AccountOpened" />
+                <ScalarProperty Name="AccountCurrency" ColumnName="AccountCurrency" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="AccountEntity" ColumnName="AccountEntity" />
+                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+                <ScalarProperty Name="BankAddress" ColumnName="BankAddress" />
+                <ScalarProperty Name="AccountBank" ColumnName="AccountBank" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AccountDiv" ColumnName="AccountDiv" />
+                <ScalarProperty Name="AccountNum" ColumnName="AccountNum" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="account_signer_entitlementID_pk" ColumnName="account_signer_entitlementID_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rptEPMonthlyAccountActivity">
+            <EntityTypeMapping TypeName="TreasuryDocsModel.rptEPMonthlyAccountActivity">
+              <MappingFragment StoreEntitySet="rptEPMonthlyAccountActivity">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+                <ScalarProperty Name="OpenedDate" ColumnName="OpenedDate" />
+                <ScalarProperty Name="ABA" ColumnName="ABA" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="EntityName" ColumnName="EntityName" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="AccountNum" ColumnName="AccountNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rptActiveSigners">
+            <EntityTypeMapping TypeName="TreasuryDocsModel.rptActiveSigners">
+              <MappingFragment StoreEntitySet="rptActiveSigners">
+                <ScalarProperty Name="Signer_Added" ColumnName="Signer Added" />
+                <ScalarProperty Name="Entitlement" ColumnName="Entitlement" />
+                <ScalarProperty Name="SignerCitizenship" ColumnName="SignerCitizenship" />
+                <ScalarProperty Name="SignerLastName" ColumnName="SignerLastName" />
+                <ScalarProperty Name="SignerFirstName" ColumnName="SignerFirstName" />
+                <ScalarProperty Name="AccountBank" ColumnName="AccountBank" />
+                <ScalarProperty Name="AccountOpened" ColumnName="AccountOpened" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AccountDiv" ColumnName="AccountDiv" />
+                <ScalarProperty Name="AccountNum" ColumnName="AccountNum" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="TDocs" ZoomLevel="79">
+        <EntityTypeShape EntityType="TreasuryDocsModel.Accounts" Width="1.5" PointX="3" PointY="1.125" Height="4.8792529296875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.Accounts_Signers_Entitlements" Width="2.5" PointX="5.25" PointY="1.75" Height="3.4001269531249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.AccountTypes" Width="1.5" PointX="0.75" PointY="2.5" Height="2.0853483072916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.Active" Width="1.5" PointX="0.75" PointY="5.625" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.Audit_Accounts" Width="1.5" PointX="5.75" PointY="6.75" Height="4.3862109375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.Audit_Accounts_Signers_Entitlements" Width="1.5" PointX="8.125" PointY="0.75" Height="3.0714322916666665" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.Balances" Width="1.5" PointX="8.125" PointY="4.75" Height="2.2496956380208317" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.Banks" Width="1.5" PointX="0.75" PointY="7.875" Height="2.5783902994791674" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.Citizenships" Width="1.5" PointX="7.75" PointY="7.75" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.Currencies" Width="1.5" PointX="0.75" PointY="11.25" Height="2.2496956380208317" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.Divisions" Width="1.5" PointX="0.75" PointY="14.25" Height="2.2496956380208317" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.Entities" Width="1.5" PointX="0.75" PointY="17.25" Height="3.5644742838541674" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.Entitlements" Width="1.5" PointX="3" PointY="7.5" Height="2.2496956380208388" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.Signers" Width="1.5" PointX="3" PointY="10.5" Height="2.9070849609375031" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.sysdiagrams" Width="1.5" PointX="10.125" PointY="5.125" Height="1.7566536458333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.AccountsContactsView" Width="1.5" PointX="9.75" PointY="8.75" Height="3.2357796223958388" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.AllAccountsSignersView" Width="1.5" PointX="11.75" PointY="10.75" Height="3.4001269531250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.AuditAccountsContactsView" Width="1.5" PointX="5.75" PointY="12.75" Height="3.8931689453125031" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.AuditAccountsSignersEntitlementsView" Width="1.5" PointX="7.75" PointY="12.75" Height="3.7288216145833282" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.AuditAccountsView" Width="1.5" PointX="13.5" PointY="0.5" Height="4.38621093750001" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.currView" Width="1.5" PointX="12" PointY="5.375" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.SignerNameView" Width="1.5" PointX="2.75" PointY="14.75" Height="1.2636116536458246" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.SignersView" Width="1.5" PointX="15.75" PointY="0.75" Height="2.7427376302083246" IsExpanded="true" />
+        <AssociationConnector Association="TreasuryDocsModel.FK_Accounts_AccountTypes" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="3.5426741536458328" />
+          <ConnectorPoint PointX="2.4166666666666665" PointY="3.5426741536458315" />
+          <ConnectorPoint PointX="2.7708333333333335" PointY="3.5426741536458328" />
+          <ConnectorPoint PointX="3" PointY="3.5426741536458328" />
+        </AssociationConnector>
+        <AssociationConnector Association="TreasuryDocsModel.FK_Accounts_Active" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.81462646484375" />
+          <ConnectorPoint PointX="2.4166666666666665" PointY="5.814626464843748" />
+          <ConnectorPoint PointX="2.8958333333333335" PointY="5.81462646484375" />
+          <ConnectorPoint PointX="3" PointY="5.81462646484375" />
+        </AssociationConnector>
+        <AssociationConnector Association="TreasuryDocsModel.FK_Accounts_Banks" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.875" />
+          <ConnectorPoint PointX="2.4410744349011204" PointY="7.6839255650988783" />
+          <ConnectorPoint PointX="2.5589255650988791" PointY="7.5660744349011209" />
+          <ConnectorPoint PointX="2.625" PointY="7.5" />
+          <ConnectorPoint PointX="2.625" PointY="2.3025850768229157" />
+          <ConnectorPoint PointX="3" PointY="2.3025850768229157" />
+        </AssociationConnector>
+        <AssociationConnector Association="TreasuryDocsModel.FK_Accounts_Currencies" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="11.313460538461539" />
+          <ConnectorPoint PointX="2.4410744349011204" PointY="11.122386103560418" />
+          <ConnectorPoint PointX="2.5589255650988791" PointY="11.004534973362661" />
+          <ConnectorPoint PointX="2.6285744349011204" PointY="10.934886103560418" />
+          <ConnectorPoint PointX="2.7464255650988791" PointY="10.817034973362661" />
+          <ConnectorPoint PointX="2.8125" PointY="10.750960538461539" />
+          <ConnectorPoint PointX="2.8125" PointY="4.6786503092447909" />
+          <ConnectorPoint PointX="3" PointY="4.6786503092447909" />
+        </AssociationConnector>
+        <AssociationConnector Association="TreasuryDocsModel.FK_Accounts_Divisions" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="14.313460538461539" />
+          <ConnectorPoint PointX="2.4410744349011204" PointY="14.12238610356042" />
+          <ConnectorPoint PointX="2.5589255650988791" PointY="14.004534973362663" />
+          <ConnectorPoint PointX="2.6875" PointY="13.875960538461541" />
+          <ConnectorPoint PointX="2.6875" PointY="2.9226296152343743" />
+          <ConnectorPoint PointX="3" PointY="2.9226296152343743" />
+        </AssociationConnector>
+        <AssociationConnector Association="TreasuryDocsModel.FK_Accounts_Entities" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="17.25" />
+          <ConnectorPoint PointX="1.5" PointY="16.749695638020832" />
+          <ConnectorPoint PointX="2.5" PointY="16.749695638020832" />
+          <ConnectorPoint PointX="2.5" PointY="1.6825405384114571" />
+          <ConnectorPoint PointX="3" PointY="1.6825405384114571" />
+        </AssociationConnector>
+        <AssociationConnector Association="TreasuryDocsModel.FK_Accounts_Signers_Entitlements_Accounts" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.9781736074218754" />
+          <ConnectorPoint PointX="5.25" PointY="2.9781736074218754" />
+        </AssociationConnector>
+        <AssociationConnector Association="TreasuryDocsModel.FK_Accounts_Signers_Entitlements_Entitlements" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="7.5" />
+          <ConnectorPoint PointX="4.875" PointY="7.125" />
+          <ConnectorPoint PointX="4.875" PointY="4.0641502802734379" />
+          <ConnectorPoint PointX="5.25" PointY="4.0641502802734379" />
+        </AssociationConnector>
+        <AssociationConnector Association="TreasuryDocsModel.FK_Accounts_Signers_Entitlements_Signers" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="11.94310546875" />
+          <ConnectorPoint PointX="5.46875" PointY="11.94310546875" />
+          <ConnectorPoint PointX="5.46875" PointY="5.150126953125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TreasuryDocsModel.Contacts" Width="1.5" PointX="10.375" PointY="15.75" Height="4.38621093750001" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.BADSInfo" Width="1.5" PointX="16.375" PointY="5.5" Height="4.7149055989583335" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.AccountSignerEntitlementsView" Width="1.5" PointX="3.375" PointY="17.75" Height="1.7566536458333246" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.DeletedSignersView" Width="2.375" PointX="5.375" PointY="17.75" Height="3.5644742838541674" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.AccountsView" Width="1.5" PointX="18.375" PointY="0.75" Height="4.2218636067708246" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.AccountsSignersView" Width="1.5" PointX="10.375" PointY="0.75" Height="3.5644742838541674" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.FBARView" Width="1.5" PointX="16.375" PointY="11.75" Height="6.6870735677083246" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.FBARSummaryView" Width="1.5" PointX="14.5" PointY="11.875" Height="6.6870735677083246" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.rptEPMonthlyAccountActivity" Width="1.5" PointX="18.375" PointY="6.75" Height="2.7494921874999818" />
+        <EntityTypeShape EntityType="TreasuryDocsModel.rptActiveSigners" Width="1.5" PointX="14.375" PointY="7.5" Height="3.1340950520833246" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

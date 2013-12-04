@@ -1,0 +1,656 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TreasuryDocsModelStoreContainer" CdmEntityContainer="TreasuryDocsEntities4">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.Accounts">
+        <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="accountID_pk" ColumnName="accountID_pk" />
+          <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+          <ScalarProperty Name="bankID_fk" ColumnName="bankID_fk" />
+          <ScalarProperty Name="typeID_fk" ColumnName="typeID_fk" />
+          <ScalarProperty Name="entityID_fk" ColumnName="entityID_fk" />
+          <ScalarProperty Name="currencyID_fk" ColumnName="currencyID_fk" />
+          <ScalarProperty Name="divisionsID_fk" ColumnName="divisionsID_fk" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="opened_date" ColumnName="opened_date" />
+          <ScalarProperty Name="closed_date" ColumnName="closed_date" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="acstatement" ColumnName="acstatement" />
+          <ScalarProperty Name="zba" ColumnName="zba" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accounts_Signers_Entitlements">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.Accounts_Signers_Entitlements">
+        <MappingFragment StoreEntitySet="Accounts_Signers_Entitlements">
+          <ScalarProperty Name="account_signer_entitlementID_pk" ColumnName="account_signer_entitlementID_pk" />
+          <ScalarProperty Name="accountID_fk" ColumnName="accountID_fk" />
+          <ScalarProperty Name="signerID_fk" ColumnName="signerID_fk" />
+          <ScalarProperty Name="entitlementID_fk" ColumnName="entitlementID_fk" />
+          <ScalarProperty Name="added" ColumnName="added" />
+          <ScalarProperty Name="removed" ColumnName="removed" />
+          <ScalarProperty Name="user_add" ColumnName="user_add" />
+          <ScalarProperty Name="user_del" ColumnName="user_del" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountTypes">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.AccountTypes">
+        <MappingFragment StoreEntitySet="AccountTypes">
+          <ScalarProperty Name="accounttypeID_pk" ColumnName="accounttypeID_pk" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Active">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.Active">
+        <MappingFragment StoreEntitySet="Active">
+          <ScalarProperty Name="activeBit" ColumnName="activeBit" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Audit_Accounts">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.Audit_Accounts">
+        <MappingFragment StoreEntitySet="Audit_Accounts">
+          <ScalarProperty Name="audit_accountID_pk" ColumnName="audit_accountID_pk" />
+          <ScalarProperty Name="accountID_pk" ColumnName="accountID_pk" />
+          <ScalarProperty Name="bankID_fk" ColumnName="bankID_fk" />
+          <ScalarProperty Name="typeID_fk" ColumnName="typeID_fk" />
+          <ScalarProperty Name="entityID_fk" ColumnName="entityID_fk" />
+          <ScalarProperty Name="currencyID_fk" ColumnName="currencyID_fk" />
+          <ScalarProperty Name="opened_date" ColumnName="opened_date" />
+          <ScalarProperty Name="closed_date" ColumnName="closed_date" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="acstatement" ColumnName="acstatement" />
+          <ScalarProperty Name="zba" ColumnName="zba" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="audit_date" ColumnName="audit_date" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+          <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Audit_Accounts_Signers_Entitlements">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.Audit_Accounts_Signers_Entitlements">
+        <MappingFragment StoreEntitySet="Audit_Accounts_Signers_Entitlements">
+          <ScalarProperty Name="audit_account_signer_entitlementID_pk" ColumnName="audit_account_signer_entitlementID_pk" />
+          <ScalarProperty Name="accountID_fk" ColumnName="accountID_fk" />
+          <ScalarProperty Name="signerID_fk" ColumnName="signerID_fk" />
+          <ScalarProperty Name="entitlementID_fk" ColumnName="entitlementID_fk" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+          <ScalarProperty Name="audit_date" ColumnName="audit_date" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+          <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Balances">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.Balances">
+        <MappingFragment StoreEntitySet="Balances">
+          <ScalarProperty Name="balanceID_pk" ColumnName="balanceID_pk" />
+          <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Banks">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.Banks">
+        <MappingFragment StoreEntitySet="Banks">
+          <ScalarProperty Name="bankID_pk" ColumnName="bankID_pk" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="abanum" ColumnName="abanum" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Citizenships">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.Citizenships">
+        <MappingFragment StoreEntitySet="Citizenships">
+          <ScalarProperty Name="citizenshipID_pk" ColumnName="citizenshipID_pk" />
+          <ScalarProperty Name="citizenshipCode" ColumnName="citizenshipCode" />
+          <ScalarProperty Name="citizenshipName" ColumnName="citizenshipName" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Currencies">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.Currencies">
+        <MappingFragment StoreEntitySet="Currencies">
+          <ScalarProperty Name="currencyID_pk" ColumnName="currencyID_pk" />
+          <ScalarProperty Name="currencyCode" ColumnName="currencyCode" />
+          <ScalarProperty Name="currencyName" ColumnName="currencyName" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Divisions">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.Divisions">
+        <MappingFragment StoreEntitySet="Divisions">
+          <ScalarProperty Name="divisionID_pk" ColumnName="divisionID_pk" />
+          <ScalarProperty Name="divisionCode" ColumnName="divisionCode" />
+          <ScalarProperty Name="divisionName" ColumnName="divisionName" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entities">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.Entities">
+        <MappingFragment StoreEntitySet="Entities">
+          <ScalarProperty Name="entityID_pk" ColumnName="entityID_pk" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="taxID" ColumnName="taxID" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="street1" ColumnName="street1" />
+          <ScalarProperty Name="street2" ColumnName="street2" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entitlements">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.Entitlements">
+        <MappingFragment StoreEntitySet="Entitlements">
+          <ScalarProperty Name="entitlementID_pk" ColumnName="entitlementID_pk" />
+          <ScalarProperty Name="entitlementGroup" ColumnName="entitlementGroup" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Signers">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.Signers">
+        <MappingFragment StoreEntitySet="Signers">
+          <ScalarProperty Name="deactivation_date" ColumnName="deactivation_date" />
+          <ScalarProperty Name="signerID_pk" ColumnName="signerID_pk" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="middlename" ColumnName="middlename" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="citizenshipID_fk" ColumnName="citizenshipID_fk" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountsContactsView">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.AccountsContactsView">
+        <MappingFragment StoreEntitySet="AccountsContactsView">
+          <ScalarProperty Name="contactID_pk" ColumnName="contactID_pk" />
+          <ScalarProperty Name="account_contact_pk" ColumnName="account_contact_pk" />
+          <ScalarProperty Name="accountID_pk" ColumnName="accountID_pk" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllAccountsSignersView">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.AllAccountsSignersView">
+        <MappingFragment StoreEntitySet="AllAccountsSignersView">
+          <ScalarProperty Name="account_signer_entitlementID_pk" ColumnName="account_signer_entitlementID_pk" />
+          <ScalarProperty Name="accountID_pk" ColumnName="accountID_pk" />
+          <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+          <ScalarProperty Name="signerID_pk" ColumnName="signerID_pk" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="entitlementGroup" ColumnName="entitlementGroup" />
+          <ScalarProperty Name="added" ColumnName="added" />
+          <ScalarProperty Name="removed" ColumnName="removed" />
+          <ScalarProperty Name="user_add" ColumnName="user_add" />
+          <ScalarProperty Name="user_del" ColumnName="user_del" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuditAccountsContactsView">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.AuditAccountsContactsView">
+        <MappingFragment StoreEntitySet="AuditAccountsContactsView">
+          <ScalarProperty Name="audit_account_contactID_pk" ColumnName="audit_account_contactID_pk" />
+          <ScalarProperty Name="accountID" ColumnName="accountID" />
+          <ScalarProperty Name="accountname" ColumnName="accountname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="middlename" ColumnName="middlename" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="bank" ColumnName="bank" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+          <ScalarProperty Name="audit_date" ColumnName="audit_date" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+          <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuditAccountsSignersEntitlementsView">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.AuditAccountsSignersEntitlementsView">
+        <MappingFragment StoreEntitySet="AuditAccountsSignersEntitlementsView">
+          <ScalarProperty Name="audit_account_signer_entitlementID_pk" ColumnName="audit_account_signer_entitlementID_pk" />
+          <ScalarProperty Name="accountID" ColumnName="accountID" />
+          <ScalarProperty Name="accountname" ColumnName="accountname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="middlename" ColumnName="middlename" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="entitlement" ColumnName="entitlement" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+          <ScalarProperty Name="audit_date" ColumnName="audit_date" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+          <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuditAccountsView">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.AuditAccountsView">
+        <MappingFragment StoreEntitySet="AuditAccountsView">
+          <ScalarProperty Name="audit_accountID_pk" ColumnName="audit_accountID_pk" />
+          <ScalarProperty Name="accountnum" ColumnName="accountnum" />
+          <ScalarProperty Name="bank" ColumnName="bank" />
+          <ScalarProperty Name="accounttype" ColumnName="accounttype" />
+          <ScalarProperty Name="entity" ColumnName="entity" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+          <ScalarProperty Name="opened_date" ColumnName="opened_date" />
+          <ScalarProperty Name="closed_date" ColumnName="closed_date" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="acstatement" ColumnName="acstatement" />
+          <ScalarProperty Name="zba" ColumnName="zba" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="audit_date" ColumnName="audit_date" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+          <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="currView">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.currView">
+        <MappingFragment StoreEntitySet="currView">
+          <ScalarProperty Name="accountID_pk" ColumnName="accountID_pk" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="currencyCode" ColumnName="currencyCode" />
+          <ScalarProperty Name="currencyName" ColumnName="currencyName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SignerNameView">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.SignerNameView">
+        <MappingFragment StoreEntitySet="SignerNameView">
+          <ScalarProperty Name="signerID" ColumnName="signerID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SignersView">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.SignersView">
+        <MappingFragment StoreEntitySet="SignersView">
+          <ScalarProperty Name="signerID_pk" ColumnName="signerID_pk" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="middlename" ColumnName="middlename" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="citizenshipName" ColumnName="citizenshipName" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.Contacts">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="isPrimary" ColumnName="isPrimary" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="street2" ColumnName="street2" />
+          <ScalarProperty Name="street1" ColumnName="street1" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="middlename" ColumnName="middlename" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="bankID_fk" ColumnName="bankID_fk" />
+          <ScalarProperty Name="contactID_pk" ColumnName="contactID_pk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BADSInfo">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.BADSInfo">
+        <MappingFragment StoreEntitySet="BADSInfo">
+          <ScalarProperty Name="taxID" ColumnName="taxID" />
+          <ScalarProperty Name="entityName" ColumnName="entityName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="accountName" ColumnName="accountName" />
+          <ScalarProperty Name="currencyCode" ColumnName="currencyCode" />
+          <ScalarProperty Name="acstatement" ColumnName="acstatement" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="street2" ColumnName="street2" />
+          <ScalarProperty Name="street1" ColumnName="street1" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="zba" ColumnName="zba" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="closed_date" ColumnName="closed_date" />
+          <ScalarProperty Name="opened_date" ColumnName="opened_date" />
+          <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountSignerEntitlementsView">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.AccountSignerEntitlementsView">
+        <MappingFragment StoreEntitySet="AccountSignerEntitlementsView">
+          <ScalarProperty Name="entitlementGroup" ColumnName="entitlementGroup" />
+          <ScalarProperty Name="citizenshipCode" ColumnName="citizenshipCode" />
+          <ScalarProperty Name="entitlementID_fk" ColumnName="entitlementID_fk" />
+          <ScalarProperty Name="middlename" ColumnName="middlename" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetEntitlementsByAccountNumber" FunctionName="TreasuryDocsModel.Store.GetEntitlementsByAccountNumber" />
+    <FunctionImportMapping FunctionImportName="GetPrimaryContactsByBankId" FunctionName="TreasuryDocsModel.Store.GetPrimaryContactsByBankID" />
+    <FunctionImportMapping FunctionImportName="RemoveAccountSignerEntitlement" FunctionName="TreasuryDocsModel.Store.RemoveAccountSignerEntitlement" />
+    <EntitySetMapping Name="DeletedSignersView">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.DeletedSignersView">
+        <MappingFragment StoreEntitySet="DeletedSignersView">
+          <ScalarProperty Name="bankID_pk" ColumnName="bankID_pk" />
+          <ScalarProperty Name="citizenshipID_fk" ColumnName="citizenshipID_fk" />
+          <ScalarProperty Name="bankName" ColumnName="bankName" />
+          <ScalarProperty Name="entityName" ColumnName="entityName" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="user_del" ColumnName="user_del" />
+          <ScalarProperty Name="user_add" ColumnName="user_add" />
+          <ScalarProperty Name="removed" ColumnName="removed" />
+          <ScalarProperty Name="added" ColumnName="added" />
+          <ScalarProperty Name="entitlementGroup" ColumnName="entitlementGroup" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="signerID_pk" ColumnName="signerID_pk" />
+          <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+          <ScalarProperty Name="accountID_pk" ColumnName="accountID_pk" />
+          <ScalarProperty Name="account_signer_entitlementID_pk" ColumnName="account_signer_entitlementID_pk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountsView">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.AccountsView">
+        <MappingFragment StoreEntitySet="AccountsView">
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="zba" ColumnName="zba" />
+          <ScalarProperty Name="acstatement" ColumnName="acstatement" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="closed_date" ColumnName="closed_date" />
+          <ScalarProperty Name="opened_date" ColumnName="opened_date" />
+          <ScalarProperty Name="currencyCode" ColumnName="currencyCode" />
+          <ScalarProperty Name="taxID" ColumnName="taxID" />
+          <ScalarProperty Name="entity" ColumnName="entity" />
+          <ScalarProperty Name="accountType" ColumnName="accountType" />
+          <ScalarProperty Name="bank" ColumnName="bank" />
+          <ScalarProperty Name="bankID_pk" ColumnName="bankID_pk" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="divisionCode" ColumnName="divisionCode" />
+          <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+          <ScalarProperty Name="accountID" ColumnName="accountID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountsSignersView">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.AccountsSignersView">
+        <MappingFragment StoreEntitySet="AccountsSignersView">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="user_del" ColumnName="user_del" />
+          <ScalarProperty Name="user_add" ColumnName="user_add" />
+          <ScalarProperty Name="removed" ColumnName="removed" />
+          <ScalarProperty Name="added" ColumnName="added" />
+          <ScalarProperty Name="entitlementGroup" ColumnName="entitlementGroup" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="signerID_pk" ColumnName="signerID_pk" />
+          <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+          <ScalarProperty Name="accountID_pk" ColumnName="accountID_pk" />
+          <ScalarProperty Name="account_signer_entitlementID_pk" ColumnName="account_signer_entitlementID_pk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FBARView">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.FBARView">
+        <MappingFragment StoreEntitySet="FBARView">
+          <ScalarProperty Name="bankID" ColumnName="bankID" />
+          <ScalarProperty Name="rownum1" ColumnName="rownum1" />
+          <ScalarProperty Name="BalanceYear" ColumnName="BalanceYear" />
+          <ScalarProperty Name="BalanceMaxUSD" ColumnName="BalanceMaxUSD" />
+          <ScalarProperty Name="BalanceID" ColumnName="BalanceID" />
+          <ScalarProperty Name="SignerUserDel" ColumnName="SignerUserDel" />
+          <ScalarProperty Name="SignerUserAdd" ColumnName="SignerUserAdd" />
+          <ScalarProperty Name="SignerRemoved" ColumnName="SignerRemoved" />
+          <ScalarProperty Name="SignerAdded" ColumnName="SignerAdded" />
+          <ScalarProperty Name="SignerActive" ColumnName="SignerActive" />
+          <ScalarProperty Name="Entitlement" ColumnName="Entitlement" />
+          <ScalarProperty Name="SignerCitizenship" ColumnName="SignerCitizenship" />
+          <ScalarProperty Name="SignerTitle" ColumnName="SignerTitle" />
+          <ScalarProperty Name="SignerMiddleName" ColumnName="SignerMiddleName" />
+          <ScalarProperty Name="SignerLastName" ColumnName="SignerLastName" />
+          <ScalarProperty Name="SignerFirstName" ColumnName="SignerFirstName" />
+          <ScalarProperty Name="SignerID" ColumnName="SignerID" />
+          <ScalarProperty Name="AccountActive" ColumnName="AccountActive" />
+          <ScalarProperty Name="AccountClosedYear" ColumnName="AccountClosedYear" />
+          <ScalarProperty Name="AccountClosed" ColumnName="AccountClosed" />
+          <ScalarProperty Name="AccountOpened" ColumnName="AccountOpened" />
+          <ScalarProperty Name="AccountCurrency" ColumnName="AccountCurrency" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+          <ScalarProperty Name="AccountEntity" ColumnName="AccountEntity" />
+          <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+          <ScalarProperty Name="BankAddress" ColumnName="BankAddress" />
+          <ScalarProperty Name="AccountBank" ColumnName="AccountBank" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="AccountDiv" ColumnName="AccountDiv" />
+          <ScalarProperty Name="AccountNum" ColumnName="AccountNum" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="account_signer_entitlementID_pk" ColumnName="account_signer_entitlementID_pk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FBARSummaryView">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.FBARSummaryView">
+        <MappingFragment StoreEntitySet="FBARSummaryView">
+          <ScalarProperty Name="bankID" ColumnName="bankID" />
+          <ScalarProperty Name="rownum1" ColumnName="rownum1" />
+          <ScalarProperty Name="BalanceYear" ColumnName="BalanceYear" />
+          <ScalarProperty Name="BalanceMaxUSD" ColumnName="BalanceMaxUSD" />
+          <ScalarProperty Name="BalanceID" ColumnName="BalanceID" />
+          <ScalarProperty Name="SignerUserDel" ColumnName="SignerUserDel" />
+          <ScalarProperty Name="SignerUserAdd" ColumnName="SignerUserAdd" />
+          <ScalarProperty Name="SignerRemoved" ColumnName="SignerRemoved" />
+          <ScalarProperty Name="SignerAdded" ColumnName="SignerAdded" />
+          <ScalarProperty Name="SignerActive" ColumnName="SignerActive" />
+          <ScalarProperty Name="Entitlement" ColumnName="Entitlement" />
+          <ScalarProperty Name="SignerCitizenship" ColumnName="SignerCitizenship" />
+          <ScalarProperty Name="SignerTitle" ColumnName="SignerTitle" />
+          <ScalarProperty Name="SignerMiddleName" ColumnName="SignerMiddleName" />
+          <ScalarProperty Name="SignerLastName" ColumnName="SignerLastName" />
+          <ScalarProperty Name="SignerFirstName" ColumnName="SignerFirstName" />
+          <ScalarProperty Name="SignerID" ColumnName="SignerID" />
+          <ScalarProperty Name="AccountActive" ColumnName="AccountActive" />
+          <ScalarProperty Name="AccountClosedYear" ColumnName="AccountClosedYear" />
+          <ScalarProperty Name="AccountClosed" ColumnName="AccountClosed" />
+          <ScalarProperty Name="AccountOpened" ColumnName="AccountOpened" />
+          <ScalarProperty Name="AccountCurrency" ColumnName="AccountCurrency" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+          <ScalarProperty Name="AccountEntity" ColumnName="AccountEntity" />
+          <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+          <ScalarProperty Name="BankAddress" ColumnName="BankAddress" />
+          <ScalarProperty Name="AccountBank" ColumnName="AccountBank" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="AccountDiv" ColumnName="AccountDiv" />
+          <ScalarProperty Name="AccountNum" ColumnName="AccountNum" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="account_signer_entitlementID_pk" ColumnName="account_signer_entitlementID_pk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rptEPMonthlyAccountActivity">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.rptEPMonthlyAccountActivity">
+        <MappingFragment StoreEntitySet="rptEPMonthlyAccountActivity">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+          <ScalarProperty Name="OpenedDate" ColumnName="OpenedDate" />
+          <ScalarProperty Name="ABA" ColumnName="ABA" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="EntityName" ColumnName="EntityName" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="AccountNum" ColumnName="AccountNum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rptActiveSigners">
+      <EntityTypeMapping TypeName="TreasuryDocsModel.rptActiveSigners">
+        <MappingFragment StoreEntitySet="rptActiveSigners">
+          <ScalarProperty Name="Signer_Added" ColumnName="Signer Added" />
+          <ScalarProperty Name="Entitlement" ColumnName="Entitlement" />
+          <ScalarProperty Name="SignerCitizenship" ColumnName="SignerCitizenship" />
+          <ScalarProperty Name="SignerLastName" ColumnName="SignerLastName" />
+          <ScalarProperty Name="SignerFirstName" ColumnName="SignerFirstName" />
+          <ScalarProperty Name="AccountBank" ColumnName="AccountBank" />
+          <ScalarProperty Name="AccountOpened" ColumnName="AccountOpened" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="AccountDiv" ColumnName="AccountDiv" />
+          <ScalarProperty Name="AccountNum" ColumnName="AccountNum" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

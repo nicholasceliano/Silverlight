@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="RadControlsSilverlightClient.FBAR"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:local="clr-namespace:RadControlsSilverlightClient"
+		mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="480">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="LayoutRoot" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <telerik:RadDataServiceDataSource x:Name="dataServiceDataSource" 
+										  AutoLoad="True"
+										  QueryName="FBARView" Margin="320,21,320,193" >
+                <telerik:RadDataServiceDataSource.DataServiceContext>
+                    <local:MyTreasuryDocsEntities />
+                </telerik:RadDataServiceDataSource.DataServiceContext>
+            </telerik:RadDataServiceDataSource>
+            <telerik:RadButton telerik:StyleManager.Theme="Windows7" Content="Export" x:Name="exportButton" Click="exportButton_Click" Grid.Row="0" Width="100"/>
+
+                <telerik:RadDataFilter Name="radDataFilter" 
+							   Grid.Row="1" telerik:StyleManager.Theme="Windows7"
+                               Width="auto" HorizontalAlignment="Center"
+							   Source="{Binding Items, ElementName=RadGridView1}"
+							   Margin="1" />
+
+
+            <telerik:RadBusyIndicator  telerik:StyleManager.Theme="Metro" x:Name="busyIndicator" Grid.Row="2"  IsBusy="{Binding IsBusy, ElementName=dataServiceDataSource}" BusyContent="Loading data....">
+                <telerik:RadGridView  telerik:StyleManager.Theme="Windows7" AutoGenerateColumns="False" IsReadOnly="True" x:Name="RadGridView1" ItemsSource="{Binding DataView, ElementName=dataServiceDataSource}"   Height="770" Width="1200"
+                             CanUserFreezeColumns="True"  AutoExpandGroups="True" RowIndicatorVisibility="Collapsed"  Margin="20,0" DataContext="{Binding}" Grid.Row="2" Foreground="Black">
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding AccountNum}" Header="Account Number"/>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding AccountDiv}" Header="Account Division" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding AccountName}" Header="Account Name" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding AccountOpened}" DataFormatString="{}{0:d}" Header="Account Opened" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding AccountBank}" Header="Bank"/>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding BankAddress}" Header="BankAddress"/>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding AccountEntity}" Header="Entity"/>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding TaxID}" Header="TaxID"/>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Address}" Header="EntityAddress"/>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding City}" Header="EntityCity"/>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding State}" Header="EntityState"/>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Zip}" Header="EntityZip"/>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Country}" Header="EntityCountry"/>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding BalanceMaxUSD}" DataFormatString="{}{0:C2}" Header="Max Balance USD" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding BalanceYear}" Header="Balance Year" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding SignerFirstName}" Header="Signer First Name" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding SignerLastName}" Header="Signer Last Name" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding SignerCitizenship}" Header="Signer Citizenship" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Entitlement}" Header="Entitlement" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding SignerAdded}" DataFormatString="{}{0:d}" Header="Signer Added" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding SignerRemoved}" DataFormatString="{}{0:d}" Header="Signer Removed" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding SignerActive}" Header="Signer Active" />
+                        <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding bank}" Header="Bank"  Width="100"/>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding accountType}" Header="Account Type" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding entity}" Header="Entity" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding currencyCode}" Header="Currency" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding opened_date}" Header="Date Opened" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding closed_date}" Header="Date Closed" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding active}" Header="Active" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding modifieddate}" Header="Date Modified" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding modifiedby}" Header="Modified By" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding createddate}" Header="Date Created" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding createdby}" Header="Created By" />-->
+                   
+                    </telerik:RadGridView.Columns>
+                    <!--<telerik:RadGridView.GroupDescriptors>
+                        <telerik:GroupDescriptor Member="AccountNum"
+                                    SortDirection="Ascending" />
+                    </telerik:RadGridView.GroupDescriptors>-->
+
+                </telerik:RadGridView>
+            </telerik:RadBusyIndicator>
+            <telerik:RadDataPager telerik:StyleManager.Theme="Windows7" Grid.Row="4"
+								   x:Name="radDataPager1"
+                                   Source="{Binding  Items, ElementName=RadGridView1}"
+								   PageSize="500" BorderThickness="1,0,1,1"
+								   DisplayMode="All"
+                                   Width="1200" IsTotalItemCountFixed="True"/>
+
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="RadControlsSilverlightClient.AccountDataSheet"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:local="clr-namespace:RadControlsSilverlightClient"
+    mc:Ignorable="d"
+    d:DesignHeight="1000" d:DesignWidth="480">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="LayoutRoot" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+            <telerik:RadDataServiceDataSource x:Name="dataServiceDataSource" AutoLoad="True" QueryName="BADSInfo" Margin="320,21,320,193" >
+                <telerik:RadDataServiceDataSource.DataServiceContext>
+                    <local:MyTreasuryDocsEntities />
+                </telerik:RadDataServiceDataSource.DataServiceContext>
+            </telerik:RadDataServiceDataSource >
+            
+            <telerik:RadDataServiceDataSource  x:Name="entitlementsDataSource" AutoLoad="True" QueryName="AccountSignerEntitlementsView">
+                <telerik:RadDataServiceDataSource.DataServiceContext>
+                    <local:MyTreasuryDocsEntities />
+                </telerik:RadDataServiceDataSource.DataServiceContext>
+            </telerik:RadDataServiceDataSource>
+            
+            <telerik:RadBusyIndicator  telerik:StyleManager.Theme="Metro" x:Name="busyIndicator" Grid.Row="1"  IsBusy="{Binding IsBusy, ElementName=dataServiceDataSource}" BusyContent="Loading data....">
+                <telerik:RadGridView telerik:StyleManager.Theme="Windows7" AutoGenerateColumns="False" IsReadOnly="True"  x:Name="AccountsView" ItemsSource="{Binding DataView, ElementName=dataServiceDataSource}" Height="700"  Width="900"
+                             CanUserFreezeColumns="True" RowIndicatorVisibility="Collapsed"  Margin="20,0" DataContext="{Binding}" Grid.Row="1" Foreground="Black">
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Name}" Header="Bank Name"  />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding accountName}" Header="Account Name"  />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding entityName}" Header="Entity Name"  />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding description}" Header="Description"  />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding currencyCode}" Header="Currency"  />
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>
+            </telerik:RadBusyIndicator>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="RadControlsSilverlightClient.Entitlements"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:local="clr-namespace:RadControlsSilverlightClient"
+		mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="480">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="LayoutRoot" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <telerik:RadDataServiceDataSource x:Name="dataServiceDataSource" 
+										  AutoLoad="True"  
+										  QueryName="Entitlements" Margin="320,21,320,193">
+                <telerik:RadDataServiceDataSource.DataServiceContext>
+                    <local:MyTreasuryDocsEntities />
+                </telerik:RadDataServiceDataSource.DataServiceContext>
+            </telerik:RadDataServiceDataSource>
+            <telerik:RadBusyIndicator  telerik:StyleManager.Theme="Metro" x:Name="busyIndicator" Grid.Row="0"  IsBusy="{Binding IsBusy, ElementName=dataServiceDataSource}" BusyContent="Loading data....">
+
+                <telerik:RadGridView telerik:StyleManager.Theme="Windows7" AutoGenerateColumns="False" IsReadOnly="True" x:Name="RadGridView1" ItemsSource="{Binding DataView, ElementName=dataServiceDataSource}" Height="550" Width="975"
+                             CanUserFreezeColumns="True" RowIndicatorVisibility="Collapsed"  Margin="20,0" DataContext="{Binding}" Grid.Row="0" Foreground="Black">
+                <telerik:RadGridView.Columns>
+
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding entitlementID_pk}" Header="Entitlement ID" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding entitlementGroup}" Header="Code" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding description}" Header="Description" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding modifieddate}" Header="Date Modified" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding modifiedby}" Header="Modified By" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding createddate}" Header="Date Created" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding createdby}" Header="Created By" />
+
+                </telerik:RadGridView.Columns>
+
+            </telerik:RadGridView>
+            </telerik:RadBusyIndicator>
+
+            <!--<telerik:RadDataPager telerik:StyleManager.Theme="Windows7" Grid.Row="1"
+								   x:Name="radDataPager1"
+                                   Source="{Binding  Items, ElementName=RadGridView1}"
+								   PageSize="10" BorderThickness="1,0,1,1"
+								   DisplayMode="All"
+                                   Width="975" IsTotalItemCountFixed="True"/>-->
+            <telerik:RadBusyIndicator  telerik:StyleManager.Theme="Metro" x:Name="busyIndicatorForm" Grid.Row="1"  IsBusy="{Binding IsBusy, ElementName=dataServiceDataSource}" BusyContent="Loading data....">
+
+                <telerik:RadDataForm telerik:StyleManager.Theme="Windows7" CommandButtonsVisibility="Add, Edit, Navigation, Commit, Cancel" AutoGenerateFields="False" EditEnding="myRadDataForm_EditEnding"  AutoCommit="False" Loaded="myRadDataForm_Loaded" x:Name="myRadDataForm" ItemsSource="{Binding DataView, ElementName=dataServiceDataSource}"  Header="ENTITLEMENT DETAILS" Grid.Row="1" Height="300" MaxWidth="975" Width="Auto" >
+                <telerik:RadDataForm.EditTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <telerik:DataFormDataField  DataMemberBinding="{Binding entitlementGroup,Mode=TwoWay}" Label="Description:"  IsEnabled="True" />
+                            <telerik:DataFormDataField DataMemberBinding="{Binding description,Mode=TwoWay}" Label="Description:"  IsEnabled="True" />
+                        </StackPanel>
+                    </DataTemplate>
+                </telerik:RadDataForm.EditTemplate>
+                <telerik:RadDataForm.NewItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <telerik:DataFormDataField  DataMemberBinding="{Binding entitlementGroup,Mode=TwoWay}" Label="Description:"  IsEnabled="True" />
+                            <telerik:DataFormDataField DataMemberBinding="{Binding description,Mode=TwoWay}" Label="Description:"  IsEnabled="True" />
+                        </StackPanel>
+                    </DataTemplate>
+                </telerik:RadDataForm.NewItemTemplate>
+                <telerik:RadDataForm.ReadOnlyTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <telerik:DataFormDataField  DataMemberBinding="{Binding entitlementGroup,Mode=TwoWay}" Label="Description:"  IsEnabled="True" />
+                            <telerik:DataFormDataField  DataMemberBinding="{Binding description,Mode=TwoWay}" Label="Description:"  IsEnabled="True" />
+                            <telerik:DataFormDataField DataMemberBinding="{Binding modifieddate,Mode=TwoWay}" Label="Date Modified:" IsEnabled="True" />
+                            <telerik:DataFormDataField DataMemberBinding="{Binding modifiedby,Mode=TwoWay}" Label="Modified By:" IsEnabled="True" />
+                            <telerik:DataFormDataField DataMemberBinding="{Binding createddate,Mode=TwoWay}" Label="Date Created:" IsEnabled="True" />
+                            <telerik:DataFormDataField DataMemberBinding="{Binding createdby,Mode=TwoWay}" Label="Created By:" IsEnabled="True" />
+                           
+                        </StackPanel>
+
+                    </DataTemplate>
+                </telerik:RadDataForm.ReadOnlyTemplate>
+            </telerik:RadDataForm>
+            </telerik:RadBusyIndicator>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

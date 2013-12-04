@@ -1,0 +1,5 @@
+C:\Users\00619461\Desktop\Treasury_Docs\bin\TDocsDataService.dll
+C:\Users\00619461\Desktop\Treasury_Docs\bin\TDocsDataService.pdb
+C:\Users\00619461\Desktop\Treasury_Docs\bin\Hess.ActiveDirectory.dll
+C:\Users\00619461\Desktop\Treasury_Docs\obj\Debug\TDocsDataService.dll
+C:\Users\00619461\Desktop\Treasury_Docs\obj\Debug\TDocsDataService.pdb

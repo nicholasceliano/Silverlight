@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="RadControlsSilverlightClient.rptActiveSigners"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:local="clr-namespace:RadControlsSilverlightClient"
+		mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="480">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="LayoutRoot" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <telerik:RadDataServiceDataSource x:Name="dataServiceDataSource" AutoLoad="True" QueryName="rptActiveSigners" Margin="320,21,320,193" >
+                <telerik:RadDataServiceDataSource.DataServiceContext>
+                    <local:MyTreasuryDocsEntities  />
+                </telerik:RadDataServiceDataSource.DataServiceContext>
+            </telerik:RadDataServiceDataSource>
+            <TextBlock Text="Active Signers Report" HorizontalAlignment="Center" Grid.Row="0" FontSize="16" />
+            <telerik:RadButton telerik:StyleManager.Theme="Windows7" Content="Export" x:Name="exportButton" Click="exportButton_Click" Grid.Row="1" Width="100"/>
+
+            <telerik:RadBusyIndicator  telerik:StyleManager.Theme="Metro" x:Name="busyIndicator" Grid.Row="2"  IsBusy="{Binding IsBusy, ElementName=dataServiceDataSource}" BusyContent="Loading data....">
+                <telerik:RadGridView  telerik:StyleManager.Theme="Windows7" AutoGenerateColumns="False" IsReadOnly="True" x:Name="RadGridView1" ItemsSource="{Binding DataView, ElementName=dataServiceDataSource}" Height="750"  Width="auto"
+                             CanUserFreezeColumns="True"  AutoExpandGroups="True" Margin="20,0" DataContext="{Binding}" Grid.Row="2" Foreground="Black">
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding AccountNum}" Header="Account Number"/>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding AccountDiv}" Header="Account Division" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding AccountName}" Header="Account Name" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding AccountOpened}" DataFormatString="{}{0:d}" Header="Account Opened" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding AccountBank}" Header="Bank"/>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding SignerFirstName}" Header="Signer First Name" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding SignerLastName}" Header="Signer Last Name" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding SignerCitizenship}" Header="Signer Citizenship" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Entitlement}" Header="Entitlement" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding SignerAdded}" DataFormatString="{}{0:d}" Header="Signer Added" />
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>
+            </telerik:RadBusyIndicator>
+        </Grid>
+    </ScrollViewer>
+</UserControl>
+

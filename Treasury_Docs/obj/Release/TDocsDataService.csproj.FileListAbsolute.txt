@@ -1,0 +1,6 @@
+C:\Users\00619461\Desktop\Treasury_Docs\bin\TDocsDataService.dll
+C:\Users\00619461\Desktop\Treasury_Docs\bin\TDocsDataService.pdb
+C:\Users\00619461\Desktop\Treasury_Docs\bin\Hess.ActiveDirectory.dll
+C:\Users\00619461\Desktop\Treasury_Docs\obj\Release\TDocsDataService.dll
+C:\Users\00619461\Desktop\Treasury_Docs\obj\Release\TDocsDataService.pdb
+C:\Users\00619461\Desktop\Treasury_Docs\obj\Release\TDocsDataService.csprojResolveAssemblyReference.cache

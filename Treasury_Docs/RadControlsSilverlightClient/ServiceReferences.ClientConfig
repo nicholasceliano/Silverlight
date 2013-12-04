@@ -1,0 +1,26 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IService1" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+          <!--LocalHost-->
+          <!--<endpoint address="http://localhost:2934/TDocs.svc" binding="basicHttpBinding"
+                bindingConfiguration="BasicHttpBinding_IService1" contract="TDocsDataService.TDocs"
+                name="BasicHttpBinding_IService1"  />-->
+          <!--Development-->
+          <endpoint address="http://dev-tdocs.ihess.com/TDocs.svc" binding="basicHttpBinding"
+                bindingConfiguration="BasicHttpBinding_IService1" contract="TDocsDataService.TDocs"
+                name="BasicHttpBinding_IService1"  />
+          <!--Production-->
+          <!--<endpoint address="http://tdocs.ihess.com/TDocs.svc" binding="basicHttpBinding"
+                bindingConfiguration="BasicHttpBinding_IService1" contract="TDocsDataService.TDocs"
+                name="BasicHttpBinding_IService1"  />-->
+        </client>
+    </system.serviceModel>
+</configuration>

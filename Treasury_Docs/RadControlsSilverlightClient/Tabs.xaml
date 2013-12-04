@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="RadControlsSilverlightClient.Tabs"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:local="clr-namespace:RadControlsSilverlightClient"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="870">
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <telerik:RadTabControl telerik:StyleManager.Theme="Windows7" x:Name="tabControl">
+            <!--<telerik:RadTabItem   Header="BANKS" Width="100" Height="25" >
+                <local:Banks x:Name="BanksControl"   />
+            </telerik:RadTabItem>-->
+
+            <telerik:RadTabItem  x:Name="TABAccountsControl" Header="ACCOUNTS" Width="100" Height="25">
+                <local:Accounts x:Name="AccountsControl" />
+            </telerik:RadTabItem>
+            <telerik:RadTabItem   x:Name="TABAcctTypesControl"  Header="ACCOUNT TYPES" Width="120" Height="25">
+                <local:AccountTypes x:Name="AcctTypesControl" />
+            </telerik:RadTabItem>
+            <telerik:RadTabItem  x:Name="TABAuditAcctsControl" Header="AUDIT ACCOUNTS" Width="120" Height="25">
+                <local:AuditAccounts x:Name="AuditAcctsControl" />
+            </telerik:RadTabItem>
+            <telerik:RadTabItem   x:Name="TABCurrenciesControl" Header="CURRENCIES" Width="100" Height="25">
+                <local:Currencies x:Name="CurrenciesControl" />
+            </telerik:RadTabItem>
+            <telerik:RadTabItem  x:Name="TABSignersControl" Header="SIGNERS" Width="100" Height="25">
+                <local:Signers x:Name="SignersControl" />
+            </telerik:RadTabItem>
+            <telerik:RadTabItem   x:Name="TABEntitlementsControl" Header="ENTITLEMENTS" Width="100" Height="25">
+                <local:Entitlements x:Name="EntitlementsControl" />
+            </telerik:RadTabItem>
+            <telerik:RadTabItem   x:Name="TABEntitiesControl" Header="ENTITIES" Width="100" Height="25">
+                <local:Entities x:Name="EntitiesControl" />
+            </telerik:RadTabItem>
+            <telerik:RadTabItem   x:Name="TABBanksControl" Header="BANKS" Width="100" Height="25">
+                <local:Banks x:Name="BanksControl" />
+            </telerik:RadTabItem>
+            <telerik:RadTabItem   x:Name="TABContactsControl" Header="CONTACTS" Width="100" Height="25" GotFocus="RadTabItem_GotFocus">
+                <local:Contacts x:Name="ContactsControl" />
+            </telerik:RadTabItem>
+            <telerik:RadTabItem  x:Name="TABDivisionsControl" Header="DIVISIONS" Width="100" Height="25">
+                <local:Divisions x:Name="DivisionsControl" />
+            </telerik:RadTabItem>
+            <telerik:RadTabItem    x:Name="TABCitizenshipsControl" Header="CITIZENSHIPS" Width="100" Height="25">
+                <local:Citizenships x:Name="CitizenshipsControl" />
+            </telerik:RadTabItem>
+            <telerik:RadTabItem   x:Name="TABAccountsSignersControl"  Header="ACCOUNTS SIGNERS" Width="120" Height="25">
+                <local:AccountsSigners x:Name="AccountsSignersControl" />
+            </telerik:RadTabItem>
+            <telerik:RadTabItem   Header="FBAR FILTERING" Width="120" Height="25">
+                <local:FBAR x:Name="FBARControl" />
+            </telerik:RadTabItem>
+            <telerik:RadTabItem   Header="REPORTS" Width="80" Height="25">
+                <local:Reports x:Name="Reports" />
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="DELETED SIGNERS" Width ="140" Height="25">
+                <local:DeletedSigners x:Name="DeletedSigners" />
+            </telerik:RadTabItem>
+        </telerik:RadTabControl>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="\\dev-corpapps\e$\inetpub\TDocs\" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/TDocsDataService.dll" publishTime="11/25/2013 10:45:22" />
+    <file relUrl="bin/Hess.ActiveDirectory.dll" publishTime="06/17/2013 13:58:45" />
+    <file relUrl="bin/TDocsDataService.pdb" publishTime="11/25/2013 10:45:22" />
+    <file relUrl="Web.config" publishTime="11/25/2013 10:45:36" />
+    <file relUrl="ClientBin/SilverlightClient.xap" publishTime="10/30/2013 11:30:39" />
+    <file relUrl="crossdomain.xml" publishTime="10/30/2013 11:30:38" />
+    <file relUrl="App_Themes/Hess/JavaScript/Silverlight.js" publishTime="10/30/2013 11:30:39" />
+    <file relUrl="Default.aspx" publishTime="10/30/2013 11:30:38" />
+    <file relUrl="App_Themes/Hess/Styles/Default.css" publishTime="10/30/2013 11:30:39" />
+    <file relUrl="TDocs.svc" publishTime="10/30/2013 11:30:38" />
+    <file relUrl="ClientBin/RadControlsSilverlightClient.xap" publishTime="11/25/2013 10:45:18" />
+    <file relUrl="App_Themes/Hess/JavaScript/SilverlightCustom.js" publishTime="10/30/2013 11:30:39" />
+  </publishProfile>
+</publishData>

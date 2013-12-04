@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="RadControlsSilverlightClient.RulesView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="640" d:DesignHeight="320">
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid x:Name="SignaturesLayout" Width="640" Margin="20, 10, 0, 0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="300" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Left"  Name="group" Text="Loading..." VerticalAlignment="Top" Grid.Row="0" />
+            <TextBlock HorizontalAlignment="Left"  Name="signatoriesLeft" Text="Left signatures" VerticalAlignment="Top"  TextWrapping="Wrap" Grid.Column="0" Grid.Row="1" />
+            <TextBlock HorizontalAlignment="Left"  Name="signatoriesRight" Text="Right signatures" VerticalAlignment="Top"  TextWrapping="Wrap" Grid.Column="1" Grid.Row="1" />
+        </Grid>
+        <Grid x:Name="RulesLayout" Width="640" Margin="20, 0, 0, 0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Left"  Name="rulesTextBlock" Text="rules" VerticalAlignment="Top" Width="600" TextWrapping="Wrap" Grid.Column="0" Grid.Row="0" />
+        </Grid>
+    </Grid>
+</UserControl>

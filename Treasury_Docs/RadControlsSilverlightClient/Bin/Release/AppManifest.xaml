@@ -1,0 +1,33 @@
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="RadControlsSilverlightClient" EntryPointType="RadControlsSilverlightClient.App" RuntimeVersion="4.0.60310.0">
+  <Deployment.Parts>
+    <AssemblyPart x:Name="RadControlsSilverlightClient" Source="RadControlsSilverlightClient.dll" />
+    <AssemblyPart x:Name="System.ComponentModel.DataAnnotations" Source="System.ComponentModel.DataAnnotations.dll" />
+    <AssemblyPart x:Name="System.Data.Services.Client" Source="System.Data.Services.Client.dll" />
+    <AssemblyPart x:Name="System.ServiceModel.DomainServices.Client" Source="System.ServiceModel.DomainServices.Client.dll" />
+    <AssemblyPart x:Name="System.ServiceModel.DomainServices.Client.Web" Source="System.ServiceModel.DomainServices.Client.Web.dll" />
+    <AssemblyPart x:Name="System.ServiceModel.Web.Extensions" Source="System.ServiceModel.Web.Extensions.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Data" Source="System.Windows.Controls.Data.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Data.Input" Source="System.Windows.Controls.Data.Input.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Navigation" Source="System.Windows.Controls.Navigation.dll" />
+    <AssemblyPart x:Name="System.Windows.Data" Source="System.Windows.Data.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Controls.Data" Source="Telerik.Windows.Controls.Data.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Controls.DataServices" Source="Telerik.Windows.Controls.DataServices.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Controls" Source="Telerik.Windows.Controls.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Controls.GridView" Source="Telerik.Windows.Controls.GridView.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Controls.Input" Source="Telerik.Windows.Controls.Input.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Controls.Navigation" Source="Telerik.Windows.Controls.Navigation.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Data" Source="Telerik.Windows.Data.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Documents" Source="Telerik.Windows.Documents.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Themes.Expression_Dark" Source="Telerik.Windows.Themes.Expression_Dark.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Themes.Metro" Source="Telerik.Windows.Themes.Metro.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Themes.Office_Blue" Source="Telerik.Windows.Themes.Office_Blue.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Themes.Office_Silver" Source="Telerik.Windows.Themes.Office_Silver.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Themes.Summer" Source="Telerik.Windows.Themes.Summer.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Themes.Transparent" Source="Telerik.Windows.Themes.Transparent.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Themes.Vista" Source="Telerik.Windows.Themes.Vista.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Themes.Windows7" Source="Telerik.Windows.Themes.Windows7.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Zip" Source="Telerik.Windows.Zip.dll" />
+    <AssemblyPart x:Name="System.Xml.Linq" Source="System.Xml.Linq.dll" />
+    <AssemblyPart x:Name="System.ComponentModel.Composition" Source="System.ComponentModel.Composition.dll" />
+  </Deployment.Parts>
+</Deployment>

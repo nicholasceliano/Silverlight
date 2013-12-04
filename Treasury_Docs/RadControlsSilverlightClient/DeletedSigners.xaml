@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="RadControlsSilverlightClient.DeletedSigners"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:local="clr-namespace:RadControlsSilverlightClient"
+    d:DesignHeight="491" d:DesignWidth="555">
+
+
+    <ScrollViewer>
+        <Grid x:Name="LayoutRoot" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+            <telerik:RadDataServiceDataSource x:Name="DeletedSignersDataContext" 
+										  AutoLoad="True"  
+										  QueryName="DeletedSignersView" Margin="320,21,320,193" >
+                <telerik:RadDataServiceDataSource.DataServiceContext>
+                    <local:MyTreasuryDocsEntities />
+                </telerik:RadDataServiceDataSource.DataServiceContext>
+            </telerik:RadDataServiceDataSource >
+
+
+            <telerik:RadBusyIndicator  telerik:StyleManager.Theme="Metro" x:Name="busyIndicator" Grid.Row="1"  IsBusy="{Binding IsBusy, ElementName=DeletedSignersDataContext}" BusyContent="Loading data....">
+                <telerik:RadGridView telerik:StyleManager.Theme="Windows7" AutoGenerateColumns="False" IsReadOnly="True"  x:Name="DeletedSignersGridView" ItemsSource="{Binding DataView, ElementName=DeletedSignersDataContext}" Height="800"  Width="900"
+                             CanUserFreezeColumns="True" RowIndicatorVisibility="Collapsed"  Margin="20,0" DataContext="{Binding}" Grid.Row="1" Foreground="Black">
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Name}" Header="Name"  />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding bankName}" Header="Bank"  />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding accountNumber}" Header="Account Number"  />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding entityName}" Header="Entity Name"  />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding removed}" Header="Removal Date" DataFormatString="d"  />
+            
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>
+            </telerik:RadBusyIndicator>
+            <telerik:RadDataPager x:Name="gridPager" Grid.Row="3" PageSize="50" DisplayMode="All" IsTotalItemCountFixed="True" Source="{Binding Items, ElementName=DeletedSignersGridView}" Margin="1" Width="900" />
+        </Grid>
+    </ScrollViewer>
+
+</UserControl>
